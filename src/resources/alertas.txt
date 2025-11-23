@@ -1,0 +1,2 @@
+Tipo: s, Ubicación: s, Usuario: s
+Tipo: accidente, Ubicación: 88.88.88, Usuario: paco 666666666
