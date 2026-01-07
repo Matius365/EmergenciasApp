@@ -28,6 +28,7 @@ public class EmergencyEvent {
     }
     @Override
     public String toString() {
-        return "Tipo: " + tipoEmergencia + ", Ubicación: " + ubicacion + ", Usuario: " + datosUsuario;
+        return "Tipo: " + tipoEmergencia + ", Ubicación: " + ubicacion + ", Usuario: " + datosUsuario
+                + ", FechaHora: " + fechaHora;
     }
 }
