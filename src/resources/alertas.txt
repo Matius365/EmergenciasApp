@@ -2,3 +2,4 @@ Tipo: s, Ubicación: s, Usuario: s
 Tipo: accidente, Ubicación: 88.88.88, Usuario: paco 666666666
 Tipo: accidente, Ubicación: n-340 pk 731, Usuario: Pascual 677888999
 Tipo: caida motorista, Ubicación: N-332 pk 88, Usuario: Ramon 655555555
+Tipo: accidente, Ubicación: n-340 pk731, Usuario: lolo 998899889, FechaHora: 2026-01-07 15:45:55
