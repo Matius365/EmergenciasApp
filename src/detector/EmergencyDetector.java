@@ -12,6 +12,7 @@ public class EmergencyDetector {
 
     public EmergencyEvent detectEvent() {
         Scanner scanner = new Scanner(System.in);
+        try {
 
         System.out.println("¿Desea activar emergencia? (S/N)");
         String respuesta = scanner.nextLine();
@@ -26,13 +27,21 @@ public class EmergencyDetector {
             System.out.print("Introduce datos usuario (nombre/teléfono): ");
             String datosUsuario = scanner.nextLine();
 
-            // Validación simple de gravedad
+            if (tipo.isEmpty() || ubicacion.isEmpty() || datosUsuario.isEmpty()) {
+                System.out.println("Error: todos los campos son obligatorios.");
+                return null;
+            }
+            // Validación de gravedad
             if (validateSeverity(tipo)) {
                 return new EmergencyEvent(tipo, ubicacion, datosUsuario);
             } else {
                 System.out.println("Emergencia no válida (falso positivo).");
             }
         }
+
+        } catch (Exception e){
+                System.err.println("Error al detectar emergencia: " + e.getMessage());
+            }
 
         return null;
     }
