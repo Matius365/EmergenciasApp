@@ -7,7 +7,7 @@ public class EmergencyEvent {
     private String tipoEmergencia;
     private String ubicacion;
     private String datosUsuario;
-    private String fechaHora; // nueva propiedad
+    private String fechaHora; // nueva feature agrega la fecha y la hora de la emergencia
 
     public EmergencyEvent(String tipoEmergencia, String ubicacion, String datosUsuario) {
         this.tipoEmergencia = tipoEmergencia;

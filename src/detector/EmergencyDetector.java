@@ -9,6 +9,9 @@ public class EmergencyDetector {
     public EmergencyDetector(int umbral) {
         this.umbral = umbral;
     }
+    // establecemos el bloque try-catch para manejar el error
+    // en este caso si algun dato esta vacio no manda el aviso
+    // y lo considera como falso positivo
 
     public EmergencyEvent detectEvent() {
         Scanner scanner = new Scanner(System.in);
