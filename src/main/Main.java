@@ -3,6 +3,7 @@ package main;
 import detector.EmergencyDetector;
 import alert.AlertSender;
 import controller.EmergencyManager;
+import tools.jackson.databind.ObjectMapper;
 
 public class Main {
     public static void main(String[] args) {
