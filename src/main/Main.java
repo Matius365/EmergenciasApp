@@ -5,8 +5,6 @@ import alert.AlertSender;
 import controller.EmergencyManager;
 import model.CentroSalud;
 import model.CentroSaludService;
-import tools.jackson.databind.ObjectMapper;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.InputMismatchException;
