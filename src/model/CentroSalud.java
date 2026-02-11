@@ -1,20 +1,64 @@
 package model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class CentroSalud {
 
+//    private String codigo;
+//    private String nombre;
+//    private String direccion;
+//    private String cp;
+//    private String municipio;
+//    private String pedania;
+//    private String telefono;
+//    private String fax;
+//    private String email;
+//    private String urlReal;
+//    private String urlCorta;
+//    private String latitud;
+//    private String longitud;
+//    private String foto1;
+
+    @JsonProperty("Código")
     private String codigo;
+
+    @JsonProperty("Nombre")
     private String nombre;
+
+    @JsonProperty("Dirección")
     private String direccion;
+
+    @JsonProperty("C.P.")
     private String cp;
+
+    @JsonProperty("Municipio")
     private String municipio;
+
+    @JsonProperty("Pedanía")
     private String pedania;
+
+    @JsonProperty("Teléfono")
     private String telefono;
+
+    @JsonProperty("Fax")
     private String fax;
+
+    @JsonProperty("Email")
     private String email;
+
+    @JsonProperty("URL Real")
     private String urlReal;
+
+    @JsonProperty("URL Corta")
     private String urlCorta;
+
+    @JsonProperty("Latitud")
     private String latitud;
+
+    @JsonProperty("Longitud")
     private String longitud;
+
+    @JsonProperty("Foto 1")
     private String foto1;
 
     public CentroSalud() {
@@ -133,6 +177,8 @@ public class CentroSalud {
     }
     @Override
     public String toString() {
-        return nombre + " - " + municipio + " (" + telefono + ")";
+        return codigo + " - " + nombre + " - " +
+                direccion + " - " + cp + " - " + municipio + " - " + telefono +
+                " - " + "latitud " + latitud + " - " + "longitud " + longitud;
     }
 }

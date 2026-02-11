@@ -7,6 +7,8 @@ import model.CentroSalud;
 import model.CentroSaludService;
 import tools.jackson.databind.ObjectMapper;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -26,7 +28,7 @@ public class Main {
                 System.out.println("======Menu======");
                 System.out.println("1. Declarar Emergencia.");
                 System.out.println("2. Mostrar Centros de Salud de Murcia.");
-                System.out.println("3. Ver Alertas Registradas.");
+                System.out.println("3. Ver Histórico de Alertas Registradas.");
                 System.out.println("0. Salir.");
                 System.out.println("Elige opcion:");
 
@@ -35,6 +37,16 @@ public class Main {
 
                 switch (opcion){
                     case 1: manager.startSystem();
+                    break;
+
+                    case 2: mostrarCentros();
+                    break;
+
+                    case 3: historicoAlertas();
+                    break;
+
+                    case 0: System.out.println("Saliendo del Sistema.");
+                    break;
 
                 }
 
@@ -49,8 +61,12 @@ public class Main {
 
 
 
+
+    }
+
+    public static void mostrarCentros(){
         List<CentroSalud> centros =
-                CentroSaludService.cargarCentros("centros_salud.json");
+                CentroSaludService.cargarCentros("src/resources/CentrosdeSalud.json");
 
         if (centros != null) {
             System.out.println("Centros cargados: " + centros.size());
@@ -59,5 +75,25 @@ public class Main {
                 System.out.println(c);
             }
         }
+        else {
+            System.out.println("No se puede cargar los centros de salud.");
+        }
+    }
+
+    public static void historicoAlertas(){
+        try (BufferedReader br =
+                new BufferedReader(new FileReader("src/resources/alertas.txt"))){
+
+            String linea;
+            System.out.println("===HISTORICO DE ALERTAS===");
+
+            while ((linea = br.readLine()) != null){
+                System.out.println(linea);
+            }
+
+        } catch (java.io.IOException e) {
+            System.out.println("Error al leer el archivo " + e.getMessage());
+        }
+
     }
 }
