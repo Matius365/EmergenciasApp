@@ -64,7 +64,7 @@ public class Main {
                 CentroSaludService.cargarCentros("src/resources/CentrosdeSalud.json");
 
         if (centros != null) {
-            System.out.println("Centros cargados: " + centros.size());
+            System.out.println("=== CENTROS CARGADOS: " + centros.size() + " ===");
 
             for (CentroSalud c : centros) {
                 System.out.println(c);
