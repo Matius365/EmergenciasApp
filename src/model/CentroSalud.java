@@ -3,7 +3,11 @@ package model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class CentroSalud {
-
+/*Hay dos formas para leer el json, esta primera es declarando las variables del constructor
+tal cual lo hacemos como en cualquier clase, pero tenemos que cambiar el json para que coincidan
+los campos, es decir, no puede haber nada "ilegal" como espacios en blanco, acentos,
+puntos y otros simbolos, ya que java no lo leeria, saldria como "null".
+*/
 //    private String codigo;
 //    private String nombre;
 //    private String direccion;
@@ -18,6 +22,10 @@ public class CentroSalud {
 //    private String latitud;
 //    private String longitud;
 //    private String foto1;
+
+    /* esta forma, con el @JsonProperty("campo del json"), podemos ponerlo tal cual viene en el
+    archivo json, ya que lee todo el campo tal cual.
+    */
 
     @JsonProperty("Código")
     private String codigo;

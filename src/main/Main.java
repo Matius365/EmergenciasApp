@@ -55,15 +55,12 @@ public class Main {
                 sc.nextLine();
             }
         }while (opcion !=0);
-
-
-        // Inicialización con parámetros
-
-
-
-
     }
 
+    //metodos para mostrar los datos del json y de alertas.txt
+    //hay dos archivos json para los centros de salud, uno tal cual viene en Aules y otro modificado,
+    //para poder leer el de Aules, he tenido que utilizar @JsonProperty y asi no se cambian los campos
+    // del archivo json y lo lee tal cual.
     public static void mostrarCentros(){
         List<CentroSalud> centros =
                 CentroSaludService.cargarCentros("src/resources/CentrosdeSalud.json");
