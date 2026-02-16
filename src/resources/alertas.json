@@ -43,4 +43,9 @@
   "fechaHora" : "2026-02-16 13:12:35",
   "tipoEmergencia" : "caida por viento",
   "ubicacion" : "N-340 pk 232"
+}, {
+  "datosUsuario" : "Maruja 655444333",
+  "fechaHora" : "2026-02-16 15:26:52",
+  "tipoEmergencia" : "caida de arbol por viento",
+  "ubicacion" : "N332 pk88"
 } ]
