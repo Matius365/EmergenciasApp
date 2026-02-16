@@ -3,47 +3,44 @@
   "fechaHora" : "2026-02-16 11:48:47",
   "tipoEmergencia" : "accidente",
   "ubicacion" : "N-340 pk731"
-},
-  {
-    "datosUsuario" : "Lolo 998899889",
-    "fechaHora" : "2026-01-07 15:45:55",
-    "tipoEmergencia" : "accidente",
-    "ubicacion" : "N-340 pk731"
-  },
-  {
-    "datosUsuario" : "julio 687545465",
-    "fechaHora" : "2026-02-09 13:14:35",
-    "tipoEmergencia" : "incendio",
-    "ubicacion" : "calle mayor 108"
-  },
-  {
-    "datosUsuario" : "ulises 654321987",
-    "fechaHora" : "2026-02-09 13:21:35",
-    "tipoEmergencia" : "inundacion",
-    "ubicacion" : "calle seprona"
-  },
-  {
-    "datosUsuario" : "Yisus 633333333",
-    "fechaHora" : "2026-02-09 13:23:53",
-    "tipoEmergencia" : "caida de techo",
-    "ubicacion" : "calle descalabro"
-  },
-  {
-    "datosUsuario" : "Neron 687687687",
-    "fechaHora" : "2026-02-09 13:25:39",
-    "tipoEmergencia" : "incendio en garaje",
-    "ubicacion" : "calle saboya 7"
-  },
-  {
-    "datosUsuario" : "Ella 687999999",
-    "fechaHora" : "2026-02-11 13:10:20",
-    "tipoEmergencia" : "caida",
-    "ubicacion" : "calle portada 81"
-  },
-  {
-    "datosUsuario" : "Ramon 688999888",
-    "fechaHora" : "2026-01-28 00:48:54",
-    "tipoEmergencia" : "riña vecinal",
-    "ubicacion" : "Calle pelegrin 7"
-  }
-]
+}, {
+  "datosUsuario" : "Lolo 998899889",
+  "fechaHora" : "2026-01-07 15:45:55",
+  "tipoEmergencia" : "accidente",
+  "ubicacion" : "N-340 pk731"
+}, {
+  "datosUsuario" : "julio 687545465",
+  "fechaHora" : "2026-02-09 13:14:35",
+  "tipoEmergencia" : "incendio",
+  "ubicacion" : "calle mayor 108"
+}, {
+  "datosUsuario" : "ulises 654321987",
+  "fechaHora" : "2026-02-09 13:21:35",
+  "tipoEmergencia" : "inundacion",
+  "ubicacion" : "calle seprona"
+}, {
+  "datosUsuario" : "Yisus 633333333",
+  "fechaHora" : "2026-02-09 13:23:53",
+  "tipoEmergencia" : "caida de techo",
+  "ubicacion" : "calle descalabro"
+}, {
+  "datosUsuario" : "Neron 687687687",
+  "fechaHora" : "2026-02-09 13:25:39",
+  "tipoEmergencia" : "incendio en garaje",
+  "ubicacion" : "calle saboya 7"
+}, {
+  "datosUsuario" : "Ella 687999999",
+  "fechaHora" : "2026-02-11 13:10:20",
+  "tipoEmergencia" : "caida",
+  "ubicacion" : "calle portada 81"
+}, {
+  "datosUsuario" : "Ramon 688999888",
+  "fechaHora" : "2026-01-28 00:48:54",
+  "tipoEmergencia" : "riña vecinal",
+  "ubicacion" : "Calle pelegrin 7"
+}, {
+  "datosUsuario" : "Elena 677777443",
+  "fechaHora" : "2026-02-16 13:12:35",
+  "tipoEmergencia" : "caida por viento",
+  "ubicacion" : "N-340 pk 232"
+} ]

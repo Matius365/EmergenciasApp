@@ -70,6 +70,20 @@ puntos y otros simbolos, ya que java no lo leeria, saldria como "null".
     private String foto1;
 
     public CentroSalud() {
+        this.codigo = "";
+        this.nombre = "";
+        this.direccion = "";
+        this.cp = "";
+        this.municipio = "";
+        this.pedania = "";
+        this.telefono = "";
+        this.fax = "";
+        this.email = "";
+        this.urlReal = "";
+        this.urlCorta = "";
+        this.latitud = "";
+        this.longitud = "";
+        this.foto1 = "";
     }
 
     public String getCodigo() {
@@ -161,7 +175,8 @@ puntos y otros simbolos, ya que java no lo leeria, saldria como "null".
     }
 
     public String getLatitud() {
-        return latitud;
+
+        return latitud == null ? "Sin datos" : latitud;
     }
 
     public void setLatitud(String latitud) {
@@ -169,11 +184,19 @@ puntos y otros simbolos, ya que java no lo leeria, saldria como "null".
     }
 
     public String getLongitud() {
-        return longitud;
+
+        return longitud == null ? "Sin datos" : longitud;
     }
 
     public void setLongitud(String longitud) {
         this.longitud = longitud;
+    }
+
+    //metodo para detectar registros sin coordenadas
+    public boolean tieneCoordenadas() {
+        return latitud != null && longitud != null
+                && !latitud.isBlank()
+                && !longitud.isBlank();
     }
 
     public String getFoto1() {
