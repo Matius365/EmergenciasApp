@@ -48,4 +48,9 @@
   "fechaHora" : "2026-02-16 15:26:52",
   "tipoEmergencia" : "caida de arbol por viento",
   "ubicacion" : "N332 pk88"
+}, {
+  "datosUsuario" : "Yisus 677558993",
+  "fechaHora" : "2026-02-22 12:19:35",
+  "tipoEmergencia" : "terremoto",
+  "ubicacion" : "campo de san jose"
 } ]

@@ -48,6 +48,9 @@ public class EmergencyEvent {
         this.fechaHora = fechaHora;
     }
 
+    private static final DateTimeFormatter FORMATO =
+            DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+
     @Override
     public String toString() {
         return "Tipo: " + tipoEmergencia + ", Ubicación: " + ubicacion + ", Usuario: " + datosUsuario
