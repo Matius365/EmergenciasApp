@@ -17,6 +17,14 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
+    // Colores ANSI
+    static final String RESET  = "\u001B[0m";
+    static final String CYAN   = "\u001B[36m";
+    static final String GREEN  = "\u001B[32m";
+    static final String RED    = "\u001B[31m";
+    static final String YELLOW = "\u001B[33m";
+    static final String BOLD   = "\u001B[1m";
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -28,12 +36,12 @@ public class Main {
 
         do{
             try{
-                System.out.println("======Menu======");
-                System.out.println("1. Declarar Emergencia.");
-                System.out.println("2. Mostrar Centros de Salud de Murcia.");
-                System.out.println("3. Ver Histórico de Alertas Registradas.");
-                System.out.println("0. Salir.");
-                System.out.println("Elige opcion:");
+                System.out.println(CYAN + BOLD +"======Menu======");
+                System.out.println(CYAN + BOLD +""+RESET + GREEN +"1. Declarar Emergencia.");
+                System.out.println(CYAN + BOLD +""+RESET + GREEN +"2. Mostrar Centros de Salud de Murcia.");
+                System.out.println(CYAN + BOLD +""+RESET + GREEN +"3. Ver Histórico de Alertas Registradas.");
+                System.out.println(CYAN + BOLD +""+RESET + RED +"0. Salir.");
+                System.out.println(YELLOW +"Elige opcion:"+ RESET);
 
                 opcion = sc.nextInt();
                 sc.nextLine();
@@ -48,8 +56,9 @@ public class Main {
                     case 3: historicoAlertas();
                     break;
 
-                    case 0: System.out.println("Saliendo del Sistema.");
+                    case 0: System.out.println(RED + BOLD +"\n Saliendo del Sistema. ¿Hasta pronto!" + RESET);
                     break;
+                    default: System.out.println(YELLOW + "  Opción no válida. Elige entre 0 y 3." + RESET);
 
                 }
 
