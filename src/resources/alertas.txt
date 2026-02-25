@@ -2,3 +2,9 @@ Tipo: s, Ubicación: s, Usuario: s
 Tipo: accidente, Ubicación: 88.88.88, Usuario: paco 666666666
 Tipo: accidente, Ubicación: n-340 pk 731, Usuario: Pascual 677888999
 Tipo: caida motorista, Ubicación: N-332 pk 88, Usuario: Ramon 655555555
+Tipo: accidente, Ubicación: n-340 pk731, Usuario: lolo 998899889, FechaHora: 2026-01-07 15:45:55
+Tipo: incendio, Ubicación: calle mayor 108, Usuario: julio 687545465, FechaHora: 2026-02-09 13:14:35
+Tipo: inundacion, Ubicación: calle seprona, Usuario: ulises 654321987, FechaHora: 2026-02-09 13:21:35
+Tipo: caida de techo, Ubicación: calle descalabro, Usuario: Yisus 633333333, FechaHora: 2026-02-09 13:23:53
+Tipo: incendio en garaje, Ubicación: calle saboya 7, Usuario: Neron 687687687, FechaHora: 2026-02-09 13:25:39
+Tipo: caida, Ubicación: calle portada 8, Usuario: Ella 687999999, FechaHora: 2026-02-11 13:10:20
