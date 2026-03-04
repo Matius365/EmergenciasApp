@@ -6,14 +6,17 @@ import java.time.format.DateTimeFormatter;
 public class EmergencyEvent {
     private String tipoEmergencia;
     private String ubicacion;
+    private String municipio;
     private String datosUsuario;
     private String fechaHora; // nueva feature agrega la fecha y la hora de la emergencia
+
 
     public EmergencyEvent(){} //constructor vacio para JSON
 
     public EmergencyEvent(String tipoEmergencia, String ubicacion, String datosUsuario) {
         this.tipoEmergencia = tipoEmergencia;
         this.ubicacion = ubicacion;
+        this.municipio = municipio;
         this.datosUsuario = datosUsuario;
         this.fechaHora = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }
@@ -25,6 +28,7 @@ public class EmergencyEvent {
     public String getUbicacion() {
         return ubicacion;
     }
+    public String getMunicipio(){return municipio; }
     public String getDatosUsuario() {
         return datosUsuario;
     }
@@ -40,6 +44,8 @@ public class EmergencyEvent {
         this.ubicacion = ubicacion;
     }
 
+    public void setMunicipio(String municipio) {this.municipio = municipio; }
+
     public void setDatosUsuario(String datosUsuario) {
         this.datosUsuario = datosUsuario;
     }
@@ -53,7 +59,7 @@ public class EmergencyEvent {
 
     @Override
     public String toString() {
-        return "Tipo: " + tipoEmergencia + ", Ubicación: " + ubicacion + ", Usuario: " + datosUsuario
-                + ", FechaHora: " + fechaHora;
+        return "Tipo: " + tipoEmergencia + ", Ubicación: " + ubicacion + ", Municipio: "
+                + municipio + ", Usuario: " + datosUsuario + ", FechaHora: " + fechaHora;
     }
 }
