@@ -57,6 +57,6 @@ public class AlertSender {
     }
 
     public void notifyContacts() {
-        System.out.println("Simulando contacto con servicios de emergencia y contactos personales...");
+        System.out.println("Enviando alerta al 112 y contactos personales... \nMostrando Centros de Salud cercanos");
     }
 }

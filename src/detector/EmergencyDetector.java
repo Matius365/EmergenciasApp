@@ -27,16 +27,19 @@ public class EmergencyDetector {
             System.out.print("Introduce ubicación: ");
             String ubicacion = scanner.nextLine();
 
+            System.out.print("Introduce municipio: ");
+            String municipio = scanner.nextLine();
+
             System.out.print("Introduce datos usuario (nombre/teléfono): ");
             String datosUsuario = scanner.nextLine();
 
-            if (tipo.isEmpty() || ubicacion.isEmpty() || datosUsuario.isEmpty()) {
+            if (tipo.isEmpty() || municipio.isEmpty() || datosUsuario.isEmpty()) {
                 System.out.println("Error: todos los campos son obligatorios.");
                 return null;
             }
             // Validación de gravedad
             if (validateSeverity(tipo)) {
-                return new EmergencyEvent(tipo, ubicacion, datosUsuario);
+                return new EmergencyEvent(tipo, ubicacion, municipio, datosUsuario);
             } else {
                 System.out.println("Emergencia no válida (falso positivo).");
             }

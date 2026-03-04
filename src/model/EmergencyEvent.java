@@ -11,9 +11,11 @@ public class EmergencyEvent {
     private String fechaHora; // nueva feature agrega la fecha y la hora de la emergencia
 
 
-    public EmergencyEvent(){} //constructor vacio para JSON
+//    public EmergencyEvent(String tipo, String ubicacion, String municipio, String datosUsuario){} //constructor vacio para JSON
+    public EmergencyEvent(){
+    }
 
-    public EmergencyEvent(String tipoEmergencia, String ubicacion, String datosUsuario) {
+    public EmergencyEvent(String tipoEmergencia, String ubicacion, String municipio, String datosUsuario) {
         this.tipoEmergencia = tipoEmergencia;
         this.ubicacion = ubicacion;
         this.municipio = municipio;
