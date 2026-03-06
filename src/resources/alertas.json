@@ -70,4 +70,34 @@
   "municipio" : "murcia",
   "tipoEmergencia" : "choque moto-coche",
   "ubicacion" : "calle frontal 5"
+}, {
+  "datosUsuario" : "Eloy 677744445",
+  "fechaHora" : "2026-03-04 13:10:00",
+  "municipio" : "murcia",
+  "tipoEmergencia" : "accidente coche",
+  "ubicacion" : "n340 pk213"
+}, {
+  "datosUsuario" : "Gala 655444213",
+  "fechaHora" : "2026-03-06 10:59:24",
+  "municipio" : "murcia",
+  "tipoEmergencia" : "atropello de peaton",
+  "ubicacion" : "calle sinpurga 54"
+}, {
+  "datosUsuario" : "lina 677888999",
+  "fechaHora" : "2026-03-06 11:03:35",
+  "municipio" : "murcia",
+  "tipoEmergencia" : "atropello de persona",
+  "ubicacion" : "calle mayor 6"
+}, {
+  "datosUsuario" : "Ulises 766543213",
+  "fechaHora" : "2026-03-06 11:08:28",
+  "municipio" : "murcia",
+  "tipoEmergencia" : "caida de arbol",
+  "ubicacion" : "calle simpatica 21"
+}, {
+  "datosUsuario" : "Juan 788999000",
+  "fechaHora" : "2026-03-06 11:10:15",
+  "municipio" : "murcia",
+  "tipoEmergencia" : "inumdacion de casa",
+  "ubicacion" : "calle lluvia 3"
 } ]

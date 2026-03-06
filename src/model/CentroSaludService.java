@@ -21,16 +21,32 @@ public class CentroSaludService {
             List<CentroSalud> filtrados = new ArrayList<>();
 
             for (CentroSalud c : listaCentros) {
-                if (c.tieneCoordenadas()) {
+                if (c != null
+                    && c.getMunicipio() != null
+                    && c.tieneCoordenadas()) {
                     filtrados.add(c);
                 }
             }
-            return listaCentros;
+            return filtrados;
 
 
         } catch (Exception e) {
             System.out.println("Error cargando centros de salud: " + e.getMessage());
             return new ArrayList<>();
         }
+    }
+    public static List<CentroSalud> buscarPorMunicipio(String ruta, String municipioBuscado) {
+
+        List<CentroSalud> centros = cargarCentros(ruta);
+        List<CentroSalud> resultado = new ArrayList<>();
+
+        for (CentroSalud c : centros) {
+
+            if (c.getMunicipio().equalsIgnoreCase(municipioBuscado)) {
+                resultado.add(c);
+            }
+        }
+
+        return resultado;
     }
 }

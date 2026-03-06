@@ -1,5 +1,7 @@
 package alert;
 
+import model.CentroSalud;
+import model.CentroSaludService;
 import model.EmergencyEvent;
 import tools.jackson.core.type.TypeReference;
 import tools.jackson.databind.ObjectMapper;
@@ -11,6 +13,7 @@ import java.util.List;
 
 public class AlertSender {
     private String destino;
+    private static final String RUTA_CENTROS = "src/resources/CentrosdeSalud.json";
 
     public AlertSender(String destino) {
         this.destino = destino;
@@ -22,7 +25,34 @@ public class AlertSender {
             return;
         }
 
-        System.out.println("Enviando alerta a " + destino + ": " + event);
+        System.out.println("\n NUEVA ALERTA");
+        System.out.println(event);
+
+        // BUSCAR CENTROS DEL MUNICIPIO
+        List<CentroSalud> centros =
+                CentroSaludService.buscarPorMunicipio(
+                        RUTA_CENTROS,
+                        event.getMunicipio()
+                );
+
+        if (centros.isEmpty()) {
+            System.out.println("No se encontraron centros en el municipio "
+                    + event.getMunicipio());
+        } else {
+            System.out.println("\n Enviando alerta a los siguientes centros:");
+
+            for (CentroSalud c : centros) {
+                System.out.println("- " + c.getNombre());
+                System.out.println("- " + c.getDireccion());
+                System.out.println("- " + c.getMunicipio());
+                System.out.println("- " + c.getTelefono());
+
+
+            }
+        }
+
+
+//        System.out.println("Enviando alerta a " + destino + ": " + event);
 
         // Creamos archivo .txt para guardar alertas
 //        try (FileWriter writer = new FileWriter("src/resources/alertas.txt", true)) {
@@ -57,6 +87,6 @@ public class AlertSender {
     }
 
     public void notifyContacts() {
-        System.out.println("Enviando alerta al 112 y contactos personales... \nMostrando Centros de Salud cercanos");
+        System.out.println("Enviando alerta al 112 y contactos personales...");
     }
 }
