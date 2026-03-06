@@ -35,6 +35,8 @@ public class CentroSaludService {
             return new ArrayList<>();
         }
     }
+
+    //Metodo para mostrar los municipios por ubicacion al declarar la alerta.
     public static List<CentroSalud> buscarPorMunicipio(String ruta, String municipioBuscado) {
 
         List<CentroSalud> centros = cargarCentros(ruta);
@@ -42,7 +44,8 @@ public class CentroSaludService {
 
         for (CentroSalud c : centros) {
 
-            if (c.getMunicipio().equalsIgnoreCase(municipioBuscado)) {
+            if (c.getMunicipio()!= null &&
+                    c.getMunicipio().toLowerCase().contains(municipioBuscado.toLowerCase())) {
                 resultado.add(c);
             }
         }
