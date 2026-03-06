@@ -36,7 +36,7 @@ public class CentroSaludService {
         }
     }
 
-    //Metodo para mostrar los municipios por ubicacion al declarar la alerta.
+    //Metodo para mostrar los municipios por ubicacion al declarar la alerta, incluso aunque no se ponga completo.
     public static List<CentroSalud> buscarPorMunicipio(String ruta, String municipioBuscado) {
 
         List<CentroSalud> centros = cargarCentros(ruta);
