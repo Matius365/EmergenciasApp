@@ -112,4 +112,10 @@
   "municipio" : "ceu",
   "tipoEmergencia" : "accidente de coche",
   "ubicacion" : "n356 pk8"
+}, {
+  "datosUsuario" : "Hugo 877665556",
+  "fechaHora" : "2026-03-06 11:22:39",
+  "municipio" : "santomera",
+  "tipoEmergencia" : "fuga de preso",
+  "ubicacion" : "carcel de campos del rio"
 } ]
