@@ -24,6 +24,11 @@ public class EmergencyDetector {
             System.out.print("Introduce tipo de emergencia: ");
             String tipo = scanner.nextLine();
 
+            System.out.print("Introduce el nivel de gravedad: Leve - Medio - Alto: ");
+            String gravedadTexto = scanner.nextLine();
+
+            String gravedad = convertirGravedad(gravedadTexto);
+
             System.out.print("Introduce ubicación: ");
             String ubicacion = scanner.nextLine();
 
@@ -39,7 +44,7 @@ public class EmergencyDetector {
             }
             // Validación de gravedad
             if (validateSeverity(tipo)) {
-                return new EmergencyEvent(tipo, ubicacion, municipio, datosUsuario);
+                return new EmergencyEvent(tipo, ubicacion, municipio, datosUsuario, gravedad);
             } else {
                 System.out.println("Emergencia no válida (falso positivo).");
             }
@@ -50,6 +55,23 @@ public class EmergencyDetector {
             }
 
         return null;
+    }
+
+
+    private String convertirGravedad(String gravedadTexto) {
+
+        gravedadTexto = gravedadTexto.toLowerCase();
+
+        if (gravedadTexto.startsWith("lev")) {
+            return "LEVE";
+        } else if (gravedadTexto.startsWith("med")) {
+            return "MEDIA";
+        } else if (gravedadTexto.startsWith("alt")) {
+            return "ALTA";
+        } else {
+            System.out.println("Gravedad no reconocida, se asigna leve.");
+            return "LEVE";
+        }
     }
 
     private boolean validateSeverity(String tipo) {

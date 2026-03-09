@@ -28,6 +28,12 @@ public class AlertSender {
         System.out.println("\n NUEVA ALERTA");
         System.out.println(event);
 
+        // Activación total si la gravedad es ALTA
+        if(event.getGravedad().equals("ALTA")){
+            System.out.println("\n🚨 ACTIVANDO TODOS LOS SERVICIOS DE EMERGENCIA:");
+            System.out.println("SAMU, GUARDIA CIVIL, BOMBEROS, POLICÍA...");
+        }
+
         // BUSCAR CENTROS DEL MUNICIPIO
         List<CentroSalud> centros =
                 CentroSaludService.buscarPorMunicipio(

@@ -166,6 +166,7 @@ public class Main {
 
             for (EmergencyEvent e : lista){
                 System.out.println(e.getTipoEmergencia() + " - "
+                + e.getGravedad() + " - "
                 + e.getUbicacion() + " - "
                 + e.getDatosUsuario() +" - "
                 + e.getFechaHora());

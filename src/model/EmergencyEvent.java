@@ -9,17 +9,19 @@ public class EmergencyEvent {
     private String municipio;
     private String datosUsuario;
     private String fechaHora; // nueva feature agrega la fecha y la hora de la emergencia
+    private String gravedad;
 
 
 //    public EmergencyEvent(String tipo, String ubicacion, String municipio, String datosUsuario){} //constructor vacio para JSON
     public EmergencyEvent(){
     }
 
-    public EmergencyEvent(String tipoEmergencia, String ubicacion, String municipio, String datosUsuario) {
+    public EmergencyEvent(String tipoEmergencia, String ubicacion, String municipio, String datosUsuario, String gravedad) {
         this.tipoEmergencia = tipoEmergencia;
         this.ubicacion = ubicacion;
         this.municipio = municipio;
         this.datosUsuario = datosUsuario;
+        this.gravedad = gravedad;
         this.fechaHora = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }
 
@@ -37,10 +39,14 @@ public class EmergencyEvent {
     public String getFechaHora() {
         return fechaHora;
     }
+    public String getGravedad() {return gravedad;
+    }
 
     public void setTipoEmergencia(String tipoEmergencia) {
         this.tipoEmergencia = tipoEmergencia;
     }
+
+    public void setGravedad(String gravedad) { this.gravedad = gravedad; }
 
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
@@ -61,7 +67,11 @@ public class EmergencyEvent {
 
     @Override
     public String toString() {
-        return "Tipo: " + tipoEmergencia + ", Ubicación: " + ubicacion + ", Municipio: "
-                + municipio + ", Usuario: " + datosUsuario + ", FechaHora: " + fechaHora;
+        return "Tipo: " + tipoEmergencia +
+                ", Gravedad: " + gravedad +
+                ", Ubicación: " + ubicacion +
+                ", Municipio: " + municipio +
+                ", Usuario: " + datosUsuario +
+                ", FechaHora: " + fechaHora;
     }
 }

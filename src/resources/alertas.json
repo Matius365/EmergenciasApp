@@ -1,121 +1,162 @@
 [ {
   "datosUsuario" : "Pepe 666666666",
   "fechaHora" : "2026-02-16 11:48:47",
+  "gravedad" : "ALTA",
   "municipio" : null,
   "tipoEmergencia" : "accidente",
   "ubicacion" : "N-340 pk731"
 }, {
   "datosUsuario" : "Lolo 998899889",
   "fechaHora" : "2026-01-07 15:45:55",
+  "gravedad" : "ALTA",
   "municipio" : null,
   "tipoEmergencia" : "accidente",
   "ubicacion" : "N-340 pk731"
 }, {
   "datosUsuario" : "julio 687545465",
   "fechaHora" : "2026-02-09 13:14:35",
+  "gravedad" : "ALTA",
   "municipio" : null,
   "tipoEmergencia" : "incendio",
   "ubicacion" : "calle mayor 108"
 }, {
   "datosUsuario" : "ulises 654321987",
   "fechaHora" : "2026-02-09 13:21:35",
+  "gravedad" : "MEDIA",
   "municipio" : null,
   "tipoEmergencia" : "inundacion",
   "ubicacion" : "calle seprona"
 }, {
   "datosUsuario" : "Yisus 633333333",
   "fechaHora" : "2026-02-09 13:23:53",
+  "gravedad" : "LEVE",
   "municipio" : null,
   "tipoEmergencia" : "caida de techo",
   "ubicacion" : "calle descalabro"
 }, {
   "datosUsuario" : "Neron 687687687",
   "fechaHora" : "2026-02-09 13:25:39",
+  "gravedad" : "MEDIA",
   "municipio" : null,
   "tipoEmergencia" : "incendio en garaje",
   "ubicacion" : "calle saboya 7"
 }, {
   "datosUsuario" : "Ella 687999999",
   "fechaHora" : "2026-02-11 13:10:20",
+  "gravedad" : "LEVE",
   "municipio" : null,
   "tipoEmergencia" : "caida",
   "ubicacion" : "calle portada 81"
 }, {
   "datosUsuario" : "Ramon 688999888",
   "fechaHora" : "2026-01-28 00:48:54",
+  "gravedad" : "LEVE",
   "municipio" : null,
   "tipoEmergencia" : "riña vecinal",
   "ubicacion" : "Calle pelegrin 7"
 }, {
   "datosUsuario" : "Elena 677777443",
   "fechaHora" : "2026-02-16 13:12:35",
+  "gravedad" : "LEVE",
   "municipio" : null,
   "tipoEmergencia" : "caida por viento",
   "ubicacion" : "N-340 pk 232"
 }, {
   "datosUsuario" : "Maruja 655444333",
   "fechaHora" : "2026-02-16 15:26:52",
+  "gravedad" : "MEDIA",
   "municipio" : null,
   "tipoEmergencia" : "caida de arbol por viento",
   "ubicacion" : "N332 pk88"
 }, {
   "datosUsuario" : "Yisus 677558993",
   "fechaHora" : "2026-02-22 12:19:35",
+  "gravedad" : "MEDIA",
   "municipio" : null,
   "tipoEmergencia" : "terremoto",
   "ubicacion" : "campo de san jose"
 }, {
   "datosUsuario" : "yisus 688888888",
   "fechaHora" : "2026-03-04 12:58:37",
+  "gravedad" : "ALTA",
   "municipio" : "murcia",
   "tipoEmergencia" : "choque moto-coche",
   "ubicacion" : "calle frontal 5"
 }, {
   "datosUsuario" : "Eloy 677744445",
   "fechaHora" : "2026-03-04 13:10:00",
+  "gravedad" : "LEVE",
   "municipio" : "murcia",
   "tipoEmergencia" : "accidente coche",
   "ubicacion" : "n340 pk213"
 }, {
   "datosUsuario" : "Gala 655444213",
   "fechaHora" : "2026-03-06 10:59:24",
+  "gravedad" : "MEDIA",
   "municipio" : "murcia",
   "tipoEmergencia" : "atropello de peaton",
   "ubicacion" : "calle sinpurga 54"
 }, {
   "datosUsuario" : "lina 677888999",
   "fechaHora" : "2026-03-06 11:03:35",
+  "gravedad" : "LEVE",
   "municipio" : "murcia",
   "tipoEmergencia" : "atropello de persona",
   "ubicacion" : "calle mayor 6"
 }, {
   "datosUsuario" : "Ulises 766543213",
   "fechaHora" : "2026-03-06 11:08:28",
+  "gravedad" : "LEVE",
   "municipio" : "murcia",
   "tipoEmergencia" : "caida de arbol",
   "ubicacion" : "calle simpatica 21"
 }, {
   "datosUsuario" : "Juan 788999000",
   "fechaHora" : "2026-03-06 11:10:15",
+  "gravedad" : "MEDIA",
   "municipio" : "murcia",
   "tipoEmergencia" : "inumdacion de casa",
   "ubicacion" : "calle lluvia 3"
 }, {
   "datosUsuario" : "Colin 788444345",
   "fechaHora" : "2026-03-06 11:13:30",
+  "gravedad" : "LEVE",
   "municipio" : "alguazas",
   "tipoEmergencia" : "caida de persona a la calzada",
   "ubicacion" : "calle simpatica 7"
 }, {
   "datosUsuario" : "Yisus 766555432",
   "fechaHora" : "2026-03-06 11:19:28",
+  "gravedad" : "ALTA",
   "municipio" : "ceu",
   "tipoEmergencia" : "accidente de coche",
   "ubicacion" : "n356 pk8"
 }, {
   "datosUsuario" : "Hugo 877665556",
   "fechaHora" : "2026-03-06 11:22:39",
+  "gravedad" : "ALTA",
   "municipio" : "santomera",
   "tipoEmergencia" : "fuga de preso",
   "ubicacion" : "carcel de campos del rio"
+}, {
+  "datosUsuario" : "Usain 687543333",
+  "fechaHora" : "2026-03-09 13:18:01",
+  "gravedad" : "LEVE",
+  "municipio" : "alhama",
+  "tipoEmergencia" : "accidente de patinete",
+  "ubicacion" : "calle marin 7"
+}, {
+  "datosUsuario" : "Yisus 655555555",
+  "fechaHora" : "2026-03-09 13:19:04",
+  "gravedad" : "ALTA",
+  "municipio" : "murcia ",
+  "tipoEmergencia" : "accidente de coche con moto",
+  "ubicacion" : "calle mayor 8"
+}, {
+  "datosUsuario" : "Usain 755666098",
+  "fechaHora" : "2026-03-09 13:27:42",
+  "gravedad" : "ALTA",
+  "municipio" : "cehegin",
+  "tipoEmergencia" : "alcance coche-moto",
+  "ubicacion" : "n-332 pk 80"
 } ]
