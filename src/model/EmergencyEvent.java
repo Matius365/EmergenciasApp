@@ -12,7 +12,7 @@ public class EmergencyEvent {
     private String gravedad;
 
 
-//    public EmergencyEvent(String tipo, String ubicacion, String municipio, String datosUsuario){} //constructor vacio para JSON
+    //constructor vacio para JSON
     public EmergencyEvent(){
     }
 

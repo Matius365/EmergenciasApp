@@ -57,6 +57,8 @@ public class EmergencyDetector {
         return null;
     }
 
+// he añadido para valorar la gravedad, no hace falta poner todo el texto, y si la gravedad es
+//alta, sale otro mensaje
 
     private String convertirGravedad(String gravedadTexto) {
 
