@@ -29,7 +29,7 @@ public class AlertSender {
         System.out.println(event);
 
         // Activación total si la gravedad es ALTA
-        if(event.getGravedad().equals("ALTA")){
+        if(event.getGravedad().equalsIgnoreCase("ALTA")){
             System.out.println("\n🚨 ACTIVANDO TODOS LOS SERVICIOS DE EMERGENCIA:");
             System.out.println("SAMU, GUARDIA CIVIL, BOMBEROS, POLICÍA...");
         }
