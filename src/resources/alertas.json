@@ -173,4 +173,60 @@
   "municipio" : "murcia",
   "tipoEmergencia" : "caida de persona",
   "ubicacion" : "calle siesta 6"
+}, {
+  "datosUsuario" : "jose / 677558999",
+  "fechaHora" : "2026-03-22 00:10:41",
+  "gravedad" : "MEDIA",
+  "municipio" : "murcia",
+  "tipoEmergencia" : "Accidente",
+  "ubicacion" : "n-340 pk731"
+}, {
+  "datosUsuario" : "yisus 677888777",
+  "fechaHora" : "2026-03-22 00:24:28",
+  "gravedad" : "ALTA",
+  "municipio" : "torres",
+  "tipoEmergencia" : "Incendio",
+  "ubicacion" : "calle troglodita"
+}, {
+  "datosUsuario" : "ulises 675448877",
+  "fechaHora" : "2026-03-22 00:25:05",
+  "gravedad" : "ALTA",
+  "municipio" : "murcia",
+  "tipoEmergencia" : "Accidente",
+  "ubicacion" : "calle viento 7"
+}, {
+  "datosUsuario" : "julio 6874433333",
+  "fechaHora" : "2026-03-22 00:30:44",
+  "gravedad" : "ALTA",
+  "municipio" : "murcia",
+  "tipoEmergencia" : "Incendio",
+  "ubicacion" : "calle toledo 7"
+}, {
+  "datosUsuario" : "ulises 788999944",
+  "fechaHora" : "2026-03-22 00:46:39",
+  "gravedad" : "ALTA",
+  "municipio" : "murcia",
+  "tipoEmergencia" : "caida por viento",
+  "ubicacion" : "calle joroba 4"
+}, {
+  "datosUsuario" : "jonas 866777544",
+  "fechaHora" : "2026-03-22 00:50:01",
+  "gravedad" : "ALTA",
+  "municipio" : "jumilla",
+  "tipoEmergencia" : "alcance moto coche",
+  "ubicacion" : "calle segovia 1"
+}, {
+  "datosUsuario" : "jonas 766884455",
+  "fechaHora" : "2026-03-22 00:51:58",
+  "gravedad" : "ALTA",
+  "municipio" : "jumilla",
+  "tipoEmergencia" : "caida de persona a la carretera",
+  "ubicacion" : "n340 pk 634"
+}, {
+  "datosUsuario" : "helena 875666999",
+  "fechaHora" : "2026-03-22 00:52:48",
+  "gravedad" : "MEDIA",
+  "municipio" : "mur",
+  "tipoEmergencia" : "incendio",
+  "ubicacion" : "calle mayor 8"
 } ]

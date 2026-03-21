@@ -1,31 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
 <!--    Esto es para probar que funciona JavaFX -->
 
-<?import javafx.scene.control.TextArea?>
-<VBox alignment="CENTER" prefHeight="800" prefWidth="900" spacing="20.0"
-      xmlns="http://javafx.com/javafx/21"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="controller.MainController">
-   <Label alignment="TOP_CENTER" text="Elige una opción" textAlignment="CENTER" />
+<VBox alignment="CENTER" prefHeight="800" prefWidth="900" spacing="20.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+
+    <Label alignment="TOP_CENTER" text="Elige una opción:" textAlignment="CENTER" />
+
     <!-- Botón para declarar una emergencia -->
-    <Button text="Declarar Emergencia" onAction="#declararEmergencia"/>
+    <Button onAction="#declararEmergencia" text="Declarar Emergencia" />
 
     <!-- Botón para ver centros de salud -->
-    <Button text="Centros de Salud" onAction="#mostrarCentros"/>
+    <Button onAction="#mostrarCentros" text="Centros de Salud" />
 
     <!-- Botón para ver el histórico -->
-    <Button text="Histórico de Alertas" onAction="#verHistorico"/>
+    <Button onAction="#verHistorico" text="Histórico de Alertas" />
 
     <!-- añadimos un area de texto para que muestre los historicos y los centros de salud -->
-    <TextArea fx:id="areaTexto" prefHeight="600" prefWidth="700"/>
+    <TextArea fx:id="areaTexto" prefHeight="600" prefWidth="700" />
+
+    <!-- añadimos formulario oculto para añadir los datos para declarar las emergencias -->
+    <VBox fx:id="emergenciaForm" alignment="CENTER" spacing="10.0" visible="false">
+        <Label text="Declarar Emergencia" />
+
+        <TextField fx:id="ubicacionField" promptText="Ubicación" />
+        <TextField fx:id="municipioField" promptText="Municipio" />
+        <TextField fx:id="usuarioField" promptText="Datos Usuario: Nombre y Teléfono" />
+
+<!--        <ChoiceBox fx:id="tipoChoiceBox">-->
+<!--            <items>-->
+<!--                <FXCollections fx:factory="observableArrayList">-->
+<!--                    <String fx:value="Incendio" />-->
+<!--                    <String fx:value="Accidente" />-->
+<!--                    <String fx:value="Robo" />-->
+<!--                </FXCollections>-->
+<!--            </items>-->
+<!--        </ChoiceBox>-->
+
+        <TextField fx:id="tipoField" promptText="Tipo de Emergencia" />
+      <Label text="Gravedad" />
+
+        <ChoiceBox fx:id="gravedadChoiceBox">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="LEVE" />
+                    <String fx:value="MEDIA" />
+                    <String fx:value="ALTA" />
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+        <Button onAction="#enviarEmergencia" text="Enviar Emergencia" />
+    </VBox>
+
    <padding>
       <Insets bottom="40.0" left="20.0" right="20.0" top="50.0" />
    </padding>
-
 </VBox>
