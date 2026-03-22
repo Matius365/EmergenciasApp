@@ -285,4 +285,39 @@
   "municipio" : "abar",
   "tipoEmergencia" : "huida de preso",
   "ubicacion" : "calle ninguna 8"
+}, {
+  "datosUsuario" : "Jose M.L. - 600111999",
+  "fechaHora" : "2026-03-22 19:30:28",
+  "gravedad" : "LEVE",
+  "municipio" : "murci",
+  "tipoEmergencia" : "caida de persona a la calzada",
+  "ubicacion" : "calle taibilla 7"
+}, {
+  "datosUsuario" : "Jose M.L. - 600111999",
+  "fechaHora" : "2026-03-22 23:11:15",
+  "gravedad" : "LEVE",
+  "municipio" : "murcia",
+  "tipoEmergencia" : "caida de moto",
+  "ubicacion" : "calle taibilla 8"
+}, {
+  "datosUsuario" : "Jose M.L. - 600111999",
+  "fechaHora" : "2026-03-22 23:11:48",
+  "gravedad" : "ALTA",
+  "municipio" : "alhama",
+  "tipoEmergencia" : "accidente de coche",
+  "ubicacion" : "n340 pk654"
+}, {
+  "datosUsuario" : "Julio - 675447766",
+  "fechaHora" : "2026-03-22 23:13:05",
+  "gravedad" : "MEDIA",
+  "municipio" : "murcia",
+  "tipoEmergencia" : "desmayo de persona",
+  "ubicacion" : "atalayas centro comercial"
+}, {
+  "datosUsuario" : "Yisus - 777666333",
+  "fechaHora" : "2026-03-22 23:30:40",
+  "gravedad" : "LEVE",
+  "municipio" : "jumilla",
+  "tipoEmergencia" : "caida de arbol a la calzada",
+  "ubicacion" : "n340 pk456"
 } ]

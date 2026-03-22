@@ -1,73 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import java.lang.String?>
 <?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.VBox?>
 
-<!--    Esto es para probar que funciona JavaFX -->
+<?import java.lang.String?>
+<VBox alignment="CENTER" prefHeight="800" prefWidth="900" spacing="20.0"
+      xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controller.MainController">
 
-<VBox alignment="CENTER" prefHeight="800" prefWidth="900" spacing="20.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+    <!-- Label usuario -->
+    <Label fx:id="usuarioLabel" text="No has iniciado sesión"/>
 
-    <Button onAction="#loginUsuario" text="Iniciar Sesión" />
-    <Label fx:id="usuarioLabel" text="No has iniciado sesión" />
+    <!-- Botón de logout -->
+    <Button text="Cerrar Sesión" onAction="#logoutUsuario"/>
 
-    <Label alignment="TOP_CENTER" text="Elige una opción:" textAlignment="CENTER" />
+    <!-- Botones principales -->
+    <Button text="Declarar Emergencia" onAction="#declararEmergencia"/>
+    <Button text="Centros de Salud" onAction="#mostrarCentros"/>
+    <Button text="Ver Histórico" onAction="#verHistorico"/>
 
-    <!-- Botón para declarar una emergencia -->
-    <Button onAction="#declararEmergencia" text="Declarar Emergencia" />
+    <!-- Área de texto para mostrar información -->
+    <TextArea fx:id="areaTexto" prefHeight="600" prefWidth="700"/>
 
-    <!-- Botón para ver centros de salud -->
-    <Button onAction="#mostrarCentros" text="Centros de Salud" />
-
-    <!-- Botón para ver el histórico -->
-    <Button onAction="#verHistorico" text="Histórico de Alertas" />
-
-    <!-- añadimos un area de texto para que muestre los historicos y los centros de salud -->
-    <TextArea fx:id="areaTexto" prefHeight="600" prefWidth="700" />
-
-    <!-- añadimos formulario oculto para añadir los datos para declarar las emergencias -->
+    <!-- Formulario para declarar emergencia -->
     <VBox fx:id="emergenciaForm" alignment="CENTER" spacing="10.0" visible="false">
-        <Label text="Declarar Emergencia" />
-
-        <TextField fx:id="ubicacionField" promptText="Ubicación" />
-        <TextField fx:id="municipioField" promptText="Municipio" />
-        <TextField fx:id="usuarioField" promptText="Datos Usuario: Nombre y Teléfono" />
-
-<!--        <ChoiceBox fx:id="tipoChoiceBox">-->
-<!--            <items>-->
-<!--                <FXCollections fx:factory="observableArrayList">-->
-<!--                    <String fx:value="Incendio" />-->
-<!--                    <String fx:value="Accidente" />-->
-<!--                    <String fx:value="Robo" />-->
-<!--                </FXCollections>-->
-<!--            </items>-->
-<!--        </ChoiceBox>-->
-
-        <TextField fx:id="tipoField" promptText="Tipo de Emergencia" />
-      <Label text="Gravedad" />
-
+        <Label text="Declarar Emergencia"/>
+        <TextField fx:id="ubicacionField" promptText="Ubicación"/>
+        <TextField fx:id="municipioField" promptText="Municipio"/>
+        <TextField fx:id="usuarioField" promptText="Datos Usuario"/>
+        <TextField fx:id="tipoField" promptText="Tipo de Emergencia"/>
+        <Label text="Gravedad"/>
         <ChoiceBox fx:id="gravedadChoiceBox">
             <items>
                 <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="LEVE" />
-                    <String fx:value="MEDIA" />
-                    <String fx:value="ALTA" />
+                    <String fx:value="LEVE"/>
+                    <String fx:value="MEDIA"/>
+                    <String fx:value="ALTA"/>
                 </FXCollections>
             </items>
         </ChoiceBox>
-        <Button onAction="#enviarEmergencia" text="Enviar Emergencia" />
+        <Button text="Enviar Emergencia" onAction="#enviarEmergencia"/>
     </VBox>
-    <Button onAction="#logoutUsuario" text="Cerrar Sesión">
-      <VBox.margin>
-         <Insets bottom="-20.0" />
-      </VBox.margin></Button>
-   <padding>
-      <Insets bottom="40.0" left="20.0" right="20.0" top="50.0" />
-   </padding>
+
+    <padding>
+        <Insets top="50" bottom="40" left="20" right="20"/>
+    </padding>
 </VBox>
