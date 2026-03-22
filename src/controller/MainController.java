@@ -111,21 +111,20 @@ public class MainController {
     // Mostrar centros en el área de texto
     @FXML
     public void mostrarCentros() {
+        emergenciaForm.setManaged(false);
         emergenciaForm.setVisible(false);
         areaTexto.setPrefHeight(600); // más pequeño
         areaTexto.setText(Main.mostrarCentros());
-        emergenciaForm.setManaged(false);
-        emergenciaForm.setVisible(false);
+
     }
 
     // Mostrar histórico en el área de texto
     @FXML
     public void verHistorico() {
+        emergenciaForm.setManaged(false);
         emergenciaForm.setVisible(false);
         areaTexto.setPrefHeight(600); // más pequeño
         areaTexto.setText(Main.historicoAlertas());
-        emergenciaForm.setManaged(false);
-        emergenciaForm.setVisible(false);
 
     }
 
