@@ -14,6 +14,9 @@
 
 <VBox alignment="CENTER" prefHeight="800" prefWidth="900" spacing="20.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
 
+    <Button onAction="#loginUsuario" text="Iniciar Sesión" />
+    <Label fx:id="usuarioLabel" text="No has iniciado sesión" />
+
     <Label alignment="TOP_CENTER" text="Elige una opción:" textAlignment="CENTER" />
 
     <!-- Botón para declarar una emergencia -->
@@ -60,7 +63,10 @@
         </ChoiceBox>
         <Button onAction="#enviarEmergencia" text="Enviar Emergencia" />
     </VBox>
-
+    <Button onAction="#logoutUsuario" text="Cerrar Sesión">
+      <VBox.margin>
+         <Insets bottom="-20.0" />
+      </VBox.margin></Button>
    <padding>
       <Insets bottom="40.0" left="20.0" right="20.0" top="50.0" />
    </padding>

@@ -229,4 +229,60 @@
   "municipio" : "mur",
   "tipoEmergencia" : "incendio",
   "ubicacion" : "calle mayor 8"
+}, {
+  "datosUsuario" : "Matius (600111999)",
+  "fechaHora" : "2026-03-22 11:48:30",
+  "gravedad" : "ALTA",
+  "municipio" : "murcia",
+  "tipoEmergencia" : "caida de tejado",
+  "ubicacion" : "calle taibilla 89"
+}, {
+  "datosUsuario" : "Matius (600111999)",
+  "fechaHora" : "2026-03-22 11:49:06",
+  "gravedad" : "LEVE",
+  "municipio" : "jumilla",
+  "tipoEmergencia" : "fuego en vivienda",
+  "ubicacion" : "calle tarado 5"
+}, {
+  "datosUsuario" : "Jose M.L. - 600111999",
+  "fechaHora" : "2026-03-22 11:52:34",
+  "gravedad" : "MEDIA",
+  "municipio" : "alha",
+  "tipoEmergencia" : "caida de arbol",
+  "ubicacion" : "calle jarama 5"
+}, {
+  "datosUsuario" : "Jose M.L. - 600111999",
+  "fechaHora" : "2026-03-22 11:54:47",
+  "gravedad" : "ALTA",
+  "municipio" : "torres",
+  "tipoEmergencia" : "accidente de coche",
+  "ubicacion" : "jumilla calle 78"
+}, {
+  "datosUsuario" : "murano 877889988",
+  "fechaHora" : "2026-03-22 11:55:58",
+  "gravedad" : "LEVE",
+  "municipio" : "aguilas",
+  "tipoEmergencia" : "caida de señor",
+  "ubicacion" : "calle uno 89"
+}, {
+  "datosUsuario" : "Jose M.L. (600111999)",
+  "fechaHora" : "2026-03-22 12:06:03",
+  "gravedad" : "MEDIA",
+  "municipio" : "agu",
+  "tipoEmergencia" : "terremoto",
+  "ubicacion" : "nunca jamas 8"
+}, {
+  "datosUsuario" : "Jose M.L. (600111999)",
+  "fechaHora" : "2026-03-22 12:12:50",
+  "gravedad" : "LEVE",
+  "municipio" : "murcia",
+  "tipoEmergencia" : "autobus averiado",
+  "ubicacion" : "kalle kaleborroka 5"
+}, {
+  "datosUsuario" : "hugo 8998877443",
+  "fechaHora" : "2026-03-22 13:32:51",
+  "gravedad" : "MEDIA",
+  "municipio" : "abar",
+  "tipoEmergencia" : "huida de preso",
+  "ubicacion" : "calle ninguna 8"
 } ]
