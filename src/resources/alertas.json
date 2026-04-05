@@ -320,4 +320,25 @@
   "municipio" : "jumilla",
   "tipoEmergencia" : "caida de arbol a la calzada",
   "ubicacion" : "n340 pk456"
+}, {
+  "datosUsuario" : "Marian - 888777321",
+  "fechaHora" : "2026-03-23 16:34:29",
+  "gravedad" : "MEDIA",
+  "municipio" : "murcia",
+  "tipoEmergencia" : "caida de niña a la calzada",
+  "ubicacion" : "calle taibilla 90"
+}, {
+  "datosUsuario" : "Jose M.L. - 600111999",
+  "fechaHora" : "2026-03-23 20:57:58",
+  "gravedad" : "ALTA",
+  "municipio" : "murcia",
+  "tipoEmergencia" : "accidente coche moto",
+  "ubicacion" : "n340 pk732"
+}, {
+  "datosUsuario" : "Ulises - 666777900",
+  "fechaHora" : "2026-03-23 20:59:12",
+  "gravedad" : "LEVE",
+  "municipio" : "jumilla",
+  "tipoEmergencia" : "caida de niño a la calzada",
+  "ubicacion" : "calle taibilla 7"
 } ]
