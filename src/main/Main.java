@@ -40,7 +40,7 @@ public class Main {
                 System.out.println(CYAN + BOLD + "" + RESET + GREEN + "  1. Declarar Emergencia      " + CYAN + BOLD + "" + RESET);
                 System.out.println(CYAN + BOLD + "" + RESET + GREEN + "  2. Centros de Salud Murcia  " + CYAN + BOLD + "" + RESET);
                 System.out.println(CYAN + BOLD + "" + RESET + GREEN + "  3. Histórico de Alertas     " + CYAN + BOLD + "" + RESET);
-                System.out.println(CYAN + BOLD + "" + RESET + GREEN + "  4. Acceso a teléfonos       " + CYAN + BOLD + "" + RESET);
+                System.out.println(CYAN + BOLD + "" + RESET + GREEN + "  4. Acceso a Agenda de teléfonos       " + CYAN + BOLD + "" + RESET);
                 System.out.println(CYAN + BOLD + "" + RESET + RED   + "  0. Salir                    " + CYAN + BOLD + "" + RESET);
                 System.out.println(CYAN + BOLD + "" + RESET);
                 System.out.print(YELLOW + "  Elige una opción: " + RESET);
