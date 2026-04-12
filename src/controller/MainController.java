@@ -1,17 +1,20 @@
 package controller;
 
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import main.Main;
 import main.MainApp;
 import model.EmergencyEvent;
+import model.Persona;
+import model.PersonaService;
 import model.UserData;
 import alert.AlertSender;
+
+import java.util.List;
 
 public class MainController {
 
@@ -23,6 +26,11 @@ public class MainController {
     @FXML private TextField tipoField;
     @FXML private ChoiceBox<String> gravedadChoiceBox;
     @FXML private Label usuarioLabel;
+
+    @FXML private TableView<Persona> tablaPersonas;
+    @FXML private TableColumn<Persona, String> colNombre;
+    @FXML private TableColumn<Persona, String> colTelefono;
+    @FXML private TableColumn<Persona, String> colTipo;
 
     private UserData usuarioActual;
     private MainApp mainApp;
@@ -62,6 +70,16 @@ public class MainController {
         usuarioLabel.setText("No has iniciado sesión");
     }
 
+//    //metodo para inicializar las columnas
+//    @FXML
+//    public void initialize() {
+//
+//        usuarioLabel.setText("No has iniciado sesión");
+//
+//        colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+//        colTelefono.setCellValueFactory(new PropertyValueFactory<>("telefono"));
+//        colTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+//    }
 
     //metodo para declarar la emergencia
     @FXML
@@ -172,6 +190,21 @@ public class MainController {
         // Mostrar datos de la BD
         areaTexto.setText(Main.accesoTelefonos());
     }
+
+//    //metodo para mostrar la agenda de telefonos con tableview
+//
+//    @FXML
+//    public void accesoTelefonos() {
+//
+//        List<Persona> personas = PersonaService.obtenerPersonas();
+//
+//        if (personas == null || personas.isEmpty()) {
+//            tablaPersonas.getItems().clear();
+//            return;
+//        }
+//
+//        tablaPersonas.setItems(FXCollections.observableArrayList(personas));
+//    }
 }
 
 

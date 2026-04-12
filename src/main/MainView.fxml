@@ -25,6 +25,15 @@
     <!-- Área de texto para mostrar información -->
     <TextArea fx:id="areaTexto" prefHeight="600" prefWidth="700"/>
 
+<!--    &lt;!&ndash; Área de texto para mostrar la tabla de la base de datos &ndash;&gt;-->
+<!--    <TableView fx:id="tablaPersonas" prefHeight="600" prefWidth="700">-->
+<!--        <columns>-->
+<!--            <TableColumn fx:id="colNombre" text="Nombre"/>-->
+<!--            <TableColumn fx:id="colTelefono" text="Teléfono"/>-->
+<!--            <TableColumn fx:id="colTipo" text="Tipo"/>-->
+<!--        </columns>-->
+<!--    </TableView>-->
+
     <!-- Formulario para declarar emergencia -->
     <VBox fx:id="emergenciaForm" alignment="CENTER" spacing="10.0" visible="false">
         <Label text="Declarar Emergencia"/>
