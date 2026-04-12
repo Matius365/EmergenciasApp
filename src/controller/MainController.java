@@ -37,10 +37,6 @@ public class MainController {
     @FXML private TableColumn<Persona, String> colApellido;
     @FXML private TableColumn<Persona, String> colTelefono;
 
-//    @FXML private TableView<Persona> tablaPersonas;
-//    @FXML private TableColumn<Persona, String> colNombre;
-//    @FXML private TableColumn<Persona, String> colTelefono;
-//    @FXML private TableColumn<Persona, String> colTipo;
 
     private UserData usuarioActual;
     private MainApp mainApp;
@@ -204,7 +200,6 @@ public class MainController {
     }
 
     //metodo para mostrar la agenda de telefonos
-
     @FXML
     public void accesoTelefonos() {
 
