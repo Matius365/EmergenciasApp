@@ -26,11 +26,21 @@ public class MainController {
     @FXML private TextField tipoField;
     @FXML private ChoiceBox<String> gravedadChoiceBox;
     @FXML private Label usuarioLabel;
-
+    @FXML private TextField nombreField;
+    @FXML private TextField apellidoField;
+    @FXML private TextField telefonoField;
+    @FXML private VBox contactoForm;
+    @FXML private VBox tablaContainer;
     @FXML private TableView<Persona> tablaPersonas;
+    @FXML private TableColumn<Persona, Integer> colId;
     @FXML private TableColumn<Persona, String> colNombre;
+    @FXML private TableColumn<Persona, String> colApellido;
     @FXML private TableColumn<Persona, String> colTelefono;
-    @FXML private TableColumn<Persona, String> colTipo;
+
+//    @FXML private TableView<Persona> tablaPersonas;
+//    @FXML private TableColumn<Persona, String> colNombre;
+//    @FXML private TableColumn<Persona, String> colTelefono;
+//    @FXML private TableColumn<Persona, String> colTipo;
 
     private UserData usuarioActual;
     private MainApp mainApp;
@@ -68,25 +78,26 @@ public class MainController {
     @FXML
     public void initialize() {
         usuarioLabel.setText("No has iniciado sesión");
+
+        //metodo para inicializar las columnas
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        colApellido.setCellValueFactory(new PropertyValueFactory<>("apellido"));
+        colTelefono.setCellValueFactory(new PropertyValueFactory<>("telefono"));
     }
 
-//    //metodo para inicializar las columnas
-//    @FXML
-//    public void initialize() {
-//
-//        usuarioLabel.setText("No has iniciado sesión");
-//
-//        colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-//        colTelefono.setCellValueFactory(new PropertyValueFactory<>("telefono"));
-//        colTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
-//    }
 
     //metodo para declarar la emergencia
     @FXML
     public void declararEmergencia() {
+        ocultarTodo();
         boolean visible = emergenciaForm.isVisible();
-        emergenciaForm.setVisible(!visible);
-        emergenciaForm.setManaged(!visible);
+//        emergenciaForm.setVisible(!visible);
+//        emergenciaForm.setManaged(!visible);
+        contactoForm.setVisible(false);
+        contactoForm.setManaged(false);
+        emergenciaForm.setVisible(!emergenciaForm.isVisible());
+        emergenciaForm.setManaged(emergenciaForm.isVisible());
         areaTexto.setPrefHeight(visible ? 600 : 200);
         if (!visible) {
             // 👇 LIMPIAR TEXTO cuando abres el formulario
@@ -99,32 +110,48 @@ public class MainController {
                 areaTexto.setText("Introduce los datos de la emergencia.");
             }
         }
+        areaTexto.setVisible(true);
+        areaTexto.setManaged(true);
     }
 
 
     //metodo para mostrar centros
     @FXML
     public void mostrarCentros() {
+        ocultarTodo();
         // Ocultar formulario si estaba abierto
-        emergenciaForm.setManaged(false);
         emergenciaForm.setVisible(false);
+        emergenciaForm.setManaged(false);
+
+        contactoForm.setVisible(false);
+        contactoForm.setManaged(false);
+
         // Ajustar altura del área de texto
         areaTexto.setPrefHeight(600);
         // Mostrar los centros de salud (llamando a tu clase Main)
         areaTexto.setText(Main.mostrarCentros());
+        areaTexto.setVisible(true);
+        areaTexto.setManaged(true);
     }
 
 
     //metodo para mostrar las emergencias-historico
     @FXML
     public void verHistorico() {
+        ocultarTodo();
         // Ocultar formulario si estaba abierto
-        emergenciaForm.setManaged(false);
         emergenciaForm.setVisible(false);
+        emergenciaForm.setManaged(false);
+
+        contactoForm.setVisible(false);
+        contactoForm.setManaged(false);
+
         // Ajustar altura del área de texto
         areaTexto.setPrefHeight(600);
         // Mostrar histórico de alertas
         areaTexto.setText(Main.historicoAlertas());
+        areaTexto.setVisible(true);
+        areaTexto.setManaged(true);
     }
 
         // Enviar la emergencia al pulsar el botón del formulario
@@ -180,31 +207,168 @@ public class MainController {
 
     @FXML
     public void accesoTelefonos() {
-        // Ocultar formulario si estaba abierto
-        emergenciaForm.setManaged(false);
-        emergenciaForm.setVisible(false);
 
-        // Ajustar tamaño del área
-        areaTexto.setPrefHeight(600);
+        ocultarTodo();
 
-        // Mostrar datos de la BD
-        areaTexto.setText(Main.accesoTelefonos());
+        //OCULTAR TEXTAREA
+        areaTexto.setVisible(false);
+        areaTexto.setManaged(false);
+
+        //MOSTRAR TABLA
+        tablaContainer.setVisible(true);
+        tablaContainer.setManaged(true);
+
+        List<Persona> personas = PersonaService.obtenerPersonas();
+        tablaPersonas.setItems(FXCollections.observableArrayList(personas));
+
+//        // Ocultar formulario si estaba abierto
+//        emergenciaForm.setVisible(false);
+//        emergenciaForm.setManaged(false);
+//
+//        // Ajustar tamaño del área
+//        areaTexto.setPrefHeight(600);
+//
+//        // mostrar contacto
+//        contactoForm.setVisible(true);
+//        contactoForm.setManaged(true);
+//
+//        // Mostrar datos de la BD
+//        areaTexto.setText(Main.accesoTelefonos());
     }
 
-//    //metodo para mostrar la agenda de telefonos con tableview
+    //metodo para añadir contactos
+    @FXML
+    public void anadirContacto() {
+
+        String nombre = nombreField.getText().trim();
+        String apellido = apellidoField.getText().trim();
+        String telefono = telefonoField.getText().trim();
+
+        if (nombre.isEmpty() || telefono.isEmpty() || apellido.isEmpty()) {
+            mostrarAlerta("Error","Rellena todos los campos, por favor.");
+            return;
+        }
+
+        try {
+            // 1. Crear objeto Persona
+            Persona persona = new Persona(nombre, apellido, telefono);
+
+            // 2. Guardar en base de datos
+            PersonaService.insertarPersona(persona);
+
+            // 3. Mensaje de confirmación
+            mostrarAlerta("Persona añadida correctamente.", nombre + " "
+                    + apellido + " - " + telefono);
+
+            // 4. Limpiar campos
+            nombreField.clear();
+            apellidoField.clear();
+            telefonoField.clear();
+            accesoTelefonos();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            mostrarAlerta("Error", "Rellena todos los campos.");
+//            areaTexto.setText("Error al añadir contacto: " + e.getMessage());
+//            areaTexto.setText("Error al añadir contacto. Mira consola.");
+
+        }
+    }
+    //metodo para mostrar alerta
+    private void mostrarAlerta(String titulo, String mensaje) {
+
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+
+        alert.showAndWait();
+    }
+
+    private void ocultarTodo() {
+
+        emergenciaForm.setVisible(false);
+        emergenciaForm.setManaged(false);
+
+        contactoForm.setVisible(false);
+        contactoForm.setManaged(false);
+
+        tablaContainer.setVisible(false);
+        tablaContainer.setManaged(false);
+
+        areaTexto.setVisible(false);
+        areaTexto.setManaged(false);
+    }
+
+    //metodo para mostrar el formulario para añadir contactos a la agenda
+    @FXML
+    public void mostrarFormularioContacto() {
+
+        ocultarTodo();
+        //OCULTAR TEXTAREA
+        areaTexto.setVisible(false);
+        areaTexto.setManaged(false);
+
+        //MOSTRAR TABLA
+        tablaContainer.setVisible(true);
+        tablaContainer.setManaged(true);
+        contactoForm.setVisible(true);
+        contactoForm.setManaged(true);
+
+        List<Persona> personas = PersonaService.obtenerPersonas();
+        tablaPersonas.setItems(FXCollections.observableArrayList(personas));
+    }
+
+    //metodo para borrar contacto de agenda
+    @FXML
+    public void borrarSeleccionado() {
+
+        //metodo para confirmacion antes de borrar
+        Persona seleccionada = tablaPersonas.getSelectionModel().getSelectedItem();
+
+        if (seleccionada == null) {
+            areaTexto.setText("Selecciona una persona primero.");
+            return;
+        }
+
+        // 🔴 ALERTA DE CONFIRMACIÓN
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmar eliminación");
+        alert.setHeaderText("¿Eliminar contacto?");
+        alert.setContentText("Vas a eliminar a: "
+                + seleccionada.getNombre() + " " + seleccionada.getApellido());
+
+        // Esperar respuesta del usuario
+        ButtonType resultado = alert.showAndWait().orElse(ButtonType.CANCEL);
+
+        if (resultado == ButtonType.OK) {
+
+            // 👉 BORRAR
+            PersonaService.eliminarPersona(seleccionada.getId());
+
+            areaTexto.setText("Contacto eliminado correctamente.");
+
+            // refrescar tabla
+            accesoTelefonos();
+
+        } else {
+            areaTexto.setText("Eliminación cancelada.");
+        }
+
+//        Persona seleccionada = tablaPersonas.getSelectionModel().getSelectedItem();
 //
-//    @FXML
-//    public void accesoTelefonos() {
-//
-//        List<Persona> personas = PersonaService.obtenerPersonas();
-//
-//        if (personas == null || personas.isEmpty()) {
-//            tablaPersonas.getItems().clear();
+//        if (seleccionada == null) {
+//            areaTexto.setText("Selecciona una persona primero.");
 //            return;
 //        }
 //
-//        tablaPersonas.setItems(FXCollections.observableArrayList(personas));
-//    }
+//        PersonaService.eliminarPersona(seleccionada.getId());
+//
+//        areaTexto.setText("Eliminado: " + seleccionada.getNombre());
+//
+//        // refrescar tabla
+//        accesoTelefonos();
+    }
 }
 
 

@@ -21,18 +21,38 @@
     <Button text="Centros de Salud" onAction="#mostrarCentros"/>
     <Button text="Ver Histórico" onAction="#verHistorico"/>
     <Button text="Acceso a teléfonos" onAction="#accesoTelefonos"/>
+    <Button text="Añadir nuevo contacto" onAction="#mostrarFormularioContacto"/>
 
     <!-- Área de texto para mostrar información -->
     <TextArea fx:id="areaTexto" prefHeight="600" prefWidth="700"/>
+    <VBox fx:id="contactoForm" visible="false" managed="false" spacing="10.0">
+        <Label text="Añadir contacto a la Agenda de Teléfonos"/>
 
-<!--    &lt;!&ndash; Área de texto para mostrar la tabla de la base de datos &ndash;&gt;-->
-<!--    <TableView fx:id="tablaPersonas" prefHeight="600" prefWidth="700">-->
-<!--        <columns>-->
-<!--            <TableColumn fx:id="colNombre" text="Nombre"/>-->
-<!--            <TableColumn fx:id="colTelefono" text="Teléfono"/>-->
-<!--            <TableColumn fx:id="colTipo" text="Tipo"/>-->
-<!--        </columns>-->
-<!--    </TableView>-->
+        <TextField fx:id="nombreField" promptText="Nombre"/>
+        <TextField fx:id="apellidoField" promptText="Apellido"/>
+        <TextField fx:id="telefonoField" promptText="Teléfono"/>
+
+        <Button text="Añadir contacto" onAction="#anadirContacto"/>
+    </VBox>
+
+    <!-- tableview para mostrar los contactos de la agenda -->
+
+    <VBox fx:id="tablaContainer" visible="false" managed="false" spacing="10.0">
+
+        <Label text="Lista de contactos"/>
+
+        <TableView fx:id="tablaPersonas" prefHeight="300" prefWidth="500">
+            <columns>
+                <TableColumn fx:id="colId" text="ID"/>
+                <TableColumn fx:id="colNombre" text="Nombre"/>
+                <TableColumn fx:id="colApellido" text="Apellido"/>
+                <TableColumn fx:id="colTelefono" text="Teléfono"/>
+            </columns>
+        </TableView>
+
+        <Button text="Borrar seleccionado" onAction="#borrarSeleccionado"/>
+
+    </VBox>
 
     <!-- Formulario para declarar emergencia -->
     <VBox fx:id="emergenciaForm" alignment="CENTER" spacing="10.0" visible="false">
