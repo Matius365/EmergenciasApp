@@ -240,7 +240,7 @@ public class MainController {
         String telefono = telefonoField.getText().trim();
 
         if (nombre.isEmpty() || telefono.isEmpty() || apellido.isEmpty()) {
-            mostrarAlerta("Error","Rellena todos los campos, por favor.");
+            mostrarAlerta("Atención","Rellena todos los campos, por favor.");
             return;
         }
 
@@ -322,8 +322,15 @@ public class MainController {
         Persona seleccionada = tablaPersonas.getSelectionModel().getSelectedItem();
 
         if (seleccionada == null) {
-            areaTexto.setText("Selecciona una persona primero.");
+//            mostrarAlerta("Atención","Selecciona una persona primero.");
+//            return;
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atención");
+            alert.setHeaderText(null);
+            alert.setContentText("Selecciona una persona primero, por favor.");
+            alert.showAndWait();
             return;
+
         }
 
         // 🔴 ALERTA DE CONFIRMACIÓN
@@ -341,7 +348,7 @@ public class MainController {
             // 👉 BORRAR
             PersonaService.eliminarPersona(seleccionada.getId());
 
-            areaTexto.setText("Contacto eliminado correctamente.");
+            mostrarAlerta("Confirmación:","Contacto eliminado correctamente.");
 
             // refrescar tabla
             accesoTelefonos();
