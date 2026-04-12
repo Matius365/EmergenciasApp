@@ -20,6 +20,7 @@
     <Button text="Declarar Emergencia" onAction="#declararEmergencia"/>
     <Button text="Centros de Salud" onAction="#mostrarCentros"/>
     <Button text="Ver Histórico" onAction="#verHistorico"/>
+    <Button text="Acceso a teléfonos" onAction="#accesoTelefonos"/>
 
     <!-- Área de texto para mostrar información -->
     <TextArea fx:id="areaTexto" prefHeight="600" prefWidth="700"/>

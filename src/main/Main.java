@@ -3,9 +3,7 @@ package main;
 import detector.EmergencyDetector;
 import alert.AlertSender;
 import controller.EmergencyManager;
-import model.CentroSalud;
-import model.CentroSaludService;
-import model.EmergencyEvent;
+import model.*;
 import tools.jackson.core.type.TypeReference;
 import tools.jackson.databind.ObjectMapper;
 
@@ -53,18 +51,18 @@ public class Main {
                     case 1: manager.startSystem();
                     break;
 
-                    case 2: mostrarCentros();
+                    case 2: mostrarCentrosConsola();
                     break;
 
-                    case 3: historicoAlertas();
+                    case 3: historicoAlertasConsola();
                     break;
 
-//                    case 4: accesoTelefonos();
-//                    break;
+                    case 4: accesoTelefonosConsola();
+                    break;
 
                     case 0: System.out.println(RED + BOLD + "\n  Saliendo del Sistema.¡Hasta pronto!" + RESET);
                     break;
-                    default: System.out.println(YELLOW + "  Opción no válida. Elige entre 0 y 3." + RESET);
+                    default: System.out.println(YELLOW + "  Opción no válida. Elige entre 0 y 4." + RESET);
 
                 }
 
@@ -81,59 +79,59 @@ public class Main {
     // del archivo json y lo lee tal cual.
 
     //metodo para mostrar los centros en consola
-//    public static void mostrarCentros(){
-//        List<CentroSalud> centros =
-//                CentroSaludService.cargarCentros("src/resources/CentrosdeSalud.json");
-//
-//        if (centros == null || centros.isEmpty()) {
-//            System.out.println(RED + "  No se pueden cargar los centros de salud." + RESET);
-//            return;
-//        }
-//
-//        Scanner sc = new Scanner(System.in);
-//        int porPagina = 5;
-//        int totalPaginas = (int) Math.ceil((double) centros.size() / porPagina);
-//        int paginaActual = 1;
-//
-//        while (true) {
-//            int inicio = (paginaActual - 1) * porPagina;
-//            int fin = Math.min(inicio + porPagina, centros.size());
-//
-//            System.out.println(CYAN + BOLD + "\n " + RESET);
-//            System.out.println(CYAN + BOLD + "    CENTROS DE SALUD         " + RESET);
-//            System.out.println(CYAN + BOLD + "  Página " + paginaActual + " de " + totalPaginas
-//                    + "                ".substring(String.valueOf(paginaActual).length() + String.valueOf(totalPaginas).length())
-//                    + "║" + RESET);
-//            System.out.println(CYAN + BOLD + "" + RESET);
-//
-//            for (int i = inicio; i < fin; i++) {
-//                System.out.println(GREEN + "  [" + (i + 1) + "] " + RESET + centros.get(i));
-//            }
-//
-//            System.out.println();
-//            if (paginaActual > 1)           System.out.println(YELLOW + "  [A] Página anterior" + RESET);
-//            if (paginaActual < totalPaginas) System.out.println(YELLOW + "  [S] Página siguiente" + RESET);
-//            System.out.println(RED +    "  [0] Volver al menú" + RESET);
-//            System.out.print(YELLOW + "  Elige una opción: " + RESET);
-//
-//            String input = sc.nextLine().trim().toLowerCase();
-//
-//            switch (input) {
-//                case "s":
-//                    if (paginaActual < totalPaginas) paginaActual++;
-//                    else System.out.println(YELLOW + "  Ya estás en la última página." + RESET);
-//                    break;
-//                case "a":
-//                    if (paginaActual > 1) paginaActual--;
-//                    else System.out.println(YELLOW + "  Ya estás en la primera página." + RESET);
-//                    break;
-//                case "0":
-//                    return;
-//                default:
-//                    System.out.println(RED + "  Opción no válida." + RESET);
-//            }
-//        }
-//    }
+    public static void mostrarCentrosConsola(){
+        List<CentroSalud> centros =
+                CentroSaludService.cargarCentros("src/resources/CentrosdeSalud.json");
+
+        if (centros == null || centros.isEmpty()) {
+            System.out.println(RED + "  No se pueden cargar los centros de salud." + RESET);
+            return;
+        }
+
+        Scanner sc = new Scanner(System.in);
+        int porPagina = 5;
+        int totalPaginas = (int) Math.ceil((double) centros.size() / porPagina);
+        int paginaActual = 1;
+
+        while (true) {
+            int inicio = (paginaActual - 1) * porPagina;
+            int fin = Math.min(inicio + porPagina, centros.size());
+
+            System.out.println(CYAN + BOLD + "\n " + RESET);
+            System.out.println(CYAN + BOLD + "    CENTROS DE SALUD         " + RESET);
+            System.out.println(CYAN + BOLD + "  Página " + paginaActual + " de " + totalPaginas
+                    + "                ".substring(String.valueOf(paginaActual).length() + String.valueOf(totalPaginas).length())
+                    + "║" + RESET);
+            System.out.println(CYAN + BOLD + "" + RESET);
+
+            for (int i = inicio; i < fin; i++) {
+                System.out.println(GREEN + "  [" + (i + 1) + "] " + RESET + centros.get(i));
+            }
+
+            System.out.println();
+            if (paginaActual > 1)           System.out.println(YELLOW + "  [A] Página anterior" + RESET);
+            if (paginaActual < totalPaginas) System.out.println(YELLOW + "  [S] Página siguiente" + RESET);
+            System.out.println(RED +    "  [0] Volver al menú" + RESET);
+            System.out.print(YELLOW + "  Elige una opción: " + RESET);
+
+            String input = sc.nextLine().trim().toLowerCase();
+
+            switch (input) {
+                case "s":
+                    if (paginaActual < totalPaginas) paginaActual++;
+                    else System.out.println(YELLOW + "  Ya estás en la última página." + RESET);
+                    break;
+                case "a":
+                    if (paginaActual > 1) paginaActual--;
+                    else System.out.println(YELLOW + "  Ya estás en la primera página." + RESET);
+                    break;
+                case "0":
+                    return;
+                default:
+                    System.out.println(RED + "  Opción no válida." + RESET);
+            }
+        }
+    }
 
     //metodo para mostrar los centros de salud en javafx
     public static String mostrarCentros(){
@@ -175,33 +173,33 @@ public class Main {
 //    }
 
 //    //Metodo para leer el historico alertas.json en consola
-//    public static void historicoAlertas(){
-//        try {
-//            ObjectMapper mapper = new ObjectMapper();
-//            File file = new File("src/resources/alertas.json");
-//
-//            if(!file.exists()){
-//                System.out.println("No hay alertas registradas." + RESET);
-//                return;
-//            }
-//            List<EmergencyEvent> lista =
-//                    mapper.readValue(file,
-//                            new TypeReference<List<EmergencyEvent>>() {});
-//
-//            System.out.println("====HISTORICO DE ALERTAS===="  + RESET);
-//
-//            for (EmergencyEvent e : lista){
-//                System.out.println(e.getTipoEmergencia() + " - "
-//                + e.getGravedad() + " - "
-//                + e.getUbicacion() + " - "
-//                + e.getDatosUsuario() +" - "
-//                + e.getFechaHora());
-//            }
-//
-//        } catch (Exception e){
-//            System.out.println("Error leyendo alertas.json: " + e.getMessage() + RESET);
-//        }
-//    }
+    public static void historicoAlertasConsola(){
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            File file = new File("src/resources/alertas.json");
+
+            if(!file.exists()){
+                System.out.println("No hay alertas registradas." + RESET);
+                return;
+            }
+            List<EmergencyEvent> lista =
+                    mapper.readValue(file,
+                            new TypeReference<List<EmergencyEvent>>() {});
+
+            System.out.println("====HISTORICO DE ALERTAS===="  + RESET);
+
+            for (EmergencyEvent e : lista){
+                System.out.println(e.getTipoEmergencia() + " - "
+                + e.getGravedad() + " - "
+                + e.getUbicacion() + " - "
+                + e.getDatosUsuario() +" - "
+                + e.getFechaHora());
+            }
+
+        } catch (Exception e){
+            System.out.println("Error leyendo alertas.json: " + e.getMessage() + RESET);
+        }
+    }
 
     //metodo para leer el historico de alertas en javafx
     public static String historicoAlertas(){
@@ -230,4 +228,39 @@ public class Main {
             return "Error leyendo alertas.json";
         }
     }
+
+    //metodo para mostrar la agenda de telefonos en consola
+
+    public static void accesoTelefonosConsola() {
+        List<Persona> personas = PersonaService.obtenerPersonas();
+
+        if (personas.isEmpty()) {
+            System.out.println("No hay contactos.");
+            return;
+        }
+
+        for (Persona p : personas) {
+            System.out.println(p);
+        }
+    }
+
+    //metodo para mostrar la agenda de telefonos en JavaFX
+
+    public static String accesoTelefonos() {
+
+        List<Persona> personas = PersonaService.obtenerPersonas();
+
+        if (personas.isEmpty()) {
+            return "No hay contactos en la base de datos.";
+        }
+
+        StringBuilder texto = new StringBuilder();
+
+        for (Persona p : personas) {
+            texto.append(p.toString()).append("\n");
+        }
+
+        return texto.toString();
+    }
+
 }

@@ -157,6 +157,21 @@ public class MainController {
 
         areaTexto.setText(mensaje + "\nEmergencia declarada correctamente!");
     }
+
+    //metodo para mostrar la agenda de telefonos
+
+    @FXML
+    public void accesoTelefonos() {
+        // Ocultar formulario si estaba abierto
+        emergenciaForm.setManaged(false);
+        emergenciaForm.setVisible(false);
+
+        // Ajustar tamaño del área
+        areaTexto.setPrefHeight(600);
+
+        // Mostrar datos de la BD
+        areaTexto.setText(Main.accesoTelefonos());
+    }
 }
 
 
