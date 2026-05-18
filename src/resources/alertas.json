@@ -348,4 +348,46 @@
   "municipio" : "Torres de cotillas",
   "tipoEmergencia" : "caida de moto",
   "ubicacion" : "Calle Taibilla 7"
+}, {
+  "datosUsuario" : "Jose M.L. - 600111999",
+  "fechaHora" : "2026-05-18 16:09:10",
+  "gravedad" : "MEDIA",
+  "municipio" : "car",
+  "tipoEmergencia" : "caida de persona mayor",
+  "ubicacion" : "calle mayor 9"
+}, {
+  "datosUsuario" : "Jose M.L. - 600111999",
+  "fechaHora" : "2026-05-18 16:10:36",
+  "gravedad" : "ALTA",
+  "municipio" : "mol",
+  "tipoEmergencia" : "alcance dos coches",
+  "ubicacion" : "n340 pk 673"
+}, {
+  "datosUsuario" : "Pascual - 677554433",
+  "fechaHora" : "2026-05-18 16:13:07",
+  "gravedad" : "LEVE",
+  "municipio" : "agu",
+  "tipoEmergencia" : "caida de arbol por viento",
+  "ubicacion" : "calle alpargate 89"
+}, {
+  "datosUsuario" : "Pascual - 677554433",
+  "fechaHora" : "2026-05-18 16:15:20",
+  "gravedad" : "ALTA",
+  "municipio" : "for",
+  "tipoEmergencia" : "caida de balcon",
+  "ubicacion" : "calle arboleda"
+}, {
+  "datosUsuario" : "Pascual - 677554433",
+  "fechaHora" : "2026-05-18 16:16:09",
+  "gravedad" : "MEDIA",
+  "municipio" : "águ",
+  "tipoEmergencia" : "atropello de peaton",
+  "ubicacion" : "calle huelva 7"
+}, {
+  "datosUsuario" : "Jose M.L. - 600111999",
+  "fechaHora" : "2026-05-18 18:43:18",
+  "gravedad" : "ALTA",
+  "municipio" : "lorca",
+  "tipoEmergencia" : "accidente coche moto",
+  "ubicacion" : "n340 pk 89"
 } ]

@@ -1,81 +1,285 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.VBox?>
-
+<?import javafx.scene.layout.*?>
 <?import java.lang.String?>
-<VBox alignment="CENTER" prefHeight="800" prefWidth="900" spacing="20.0"
-      xmlns="http://javafx.com/javafx/21"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="controller.MainController">
 
-    <!-- Label usuario -->
-    <Label fx:id="usuarioLabel" text="No has iniciado sesión"/>
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.MainController"
+            style="-fx-background-color: #ecf0f1;">
 
-    <!-- Botón de logout -->
-    <Button text="Cerrar Sesión" onAction="#logoutUsuario"/>
+    <!-- BARRA SUPERIOR -->
+    <top>
+        <HBox alignment="CENTER_RIGHT"
+              spacing="20"
+              styleClass="top-bar">
 
-    <!-- Botones principales -->
-    <Button text="Declarar Emergencia" onAction="#declararEmergencia"/>
-    <Button text="Centros de Salud" onAction="#mostrarCentros"/>
-    <Button text="Ver Histórico" onAction="#verHistorico"/>
-    <Button text="Acceso a teléfonos" onAction="#accesoTelefonos"/>
-    <Button text="Añadir nuevo contacto" onAction="#mostrarFormularioContacto"/>
+            <Label fx:id="usuarioLabel"
+                   text="Usuario"
+                   styleClass="top-user-label"/>
 
-    <!-- Área de texto para mostrar información -->
-    <TextArea fx:id="areaTexto" prefHeight="600" prefWidth="700"/>
-    <VBox fx:id="contactoForm" visible="false" managed="false" spacing="10.0">
-        <Label text="Añadir contacto a la Agenda de Teléfonos"/>
+            <Button text="Cerrar Sesión"
+                    onAction="#logoutUsuario"
+                    styleClass="danger-button"/>
+        </HBox>
+    </top>
 
-        <TextField fx:id="nombreField" promptText="Nombre"/>
-        <TextField fx:id="apellidoField" promptText="Apellido"/>
-        <TextField fx:id="telefonoField" promptText="Teléfono"/>
+    <!-- MENÚ LATERAL -->
+    <left>
+        <VBox spacing="15"
+              prefWidth="260"
+              alignment="TOP_CENTER"
+              styleClass="side-menu">
 
-        <Button text="Añadir contacto" onAction="#anadirContacto"/>
-    </VBox>
+            <Label text="MENÚ"
+                   styleClass="menu-title"/>
 
-    <!-- tableview para mostrar los contactos de la agenda -->
+            <Button text="🚨 Declarar Emergencia"
+                    onAction="#declararEmergencia"
+                    prefWidth="220"
+                    prefHeight="45"/>
 
-    <VBox fx:id="tablaContainer" visible="false" managed="false" spacing="10.0">
+            <Button text="🏥 Centros de Salud"
+                    onAction="#mostrarCentros"
+                    prefWidth="220"
+                    prefHeight="45"/>
 
-        <Label text="Lista de contactos"/>
+            <Button text="📜 Ver Histórico"
+                    onAction="#verHistorico"
+                    prefWidth="220"
+                    prefHeight="45"/>
 
-        <TableView fx:id="tablaPersonas" prefHeight="300" prefWidth="500">
-            <columns>
-                <TableColumn fx:id="colId" text="ID"/>
-                <TableColumn fx:id="colNombre" text="Nombre"/>
-                <TableColumn fx:id="colApellido" text="Apellido"/>
-                <TableColumn fx:id="colTelefono" text="Teléfono"/>
-            </columns>
-        </TableView>
+            <Button text="📞 Agenda Telefónica"
+                    onAction="#accesoTelefonos"
+                    prefWidth="220"
+                    prefHeight="45"/>
 
-        <Button text="Borrar seleccionado" onAction="#borrarSeleccionado"/>
-        <Button text="Editar seleccionado" onAction="#editarSeleccionado"/>
+            <Button text="➕ Añadir Contacto"
+                    onAction="#mostrarFormularioContacto"
+                    prefWidth="220"
+                    prefHeight="45"/>
+        </VBox>
+    </left>
 
-    </VBox>
+    <!-- CONTENIDO CENTRAL -->
+    <center>
+        <VBox alignment="TOP_CENTER"
+              spacing="20"
+              style="-fx-padding: 25;">
 
-    <!-- Formulario para declarar emergencia -->
-    <VBox fx:id="emergenciaForm" alignment="CENTER" spacing="10.0" visible="false">
-        <Label text="Declarar Emergencia"/>
-        <TextField fx:id="ubicacionField" promptText="Ubicación"/>
-        <TextField fx:id="municipioField" promptText="Municipio"/>
-        <TextField fx:id="usuarioField" promptText="Datos Usuario"/>
-        <TextField fx:id="tipoField" promptText="Tipo de Emergencia"/>
-        <Label text="Gravedad"/>
-        <ChoiceBox fx:id="gravedadChoiceBox">
-            <items>
-                <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="LEVE"/>
-                    <String fx:value="MEDIA"/>
-                    <String fx:value="ALTA"/>
-                </FXCollections>
-            </items>
-        </ChoiceBox>
-        <Button text="Enviar Emergencia" onAction="#enviarEmergencia"/>
-    </VBox>
+            <!-- ÁREA TEXTO -->
+            <TextArea fx:id="areaTexto"
+                      prefHeight="220"
+                      prefWidth="700"
+                      editable="false"
+                      wrapText="true"/>
 
-    <padding>
-        <Insets top="50" bottom="40" left="20" right="20"/>
-    </padding>
-</VBox>
+            <!-- FORM CONTACTOS -->
+            <VBox fx:id="contactoForm"
+                  visible="false"
+                  managed="false"
+                  spacing="10"
+                  maxWidth="450"
+                  styleClass="card">
+
+                <Label text="➕ Añadir Contacto"
+                       styleClass="section-title"/>
+
+                <TextField fx:id="nombreField"
+                           promptText="Nombre"/>
+
+                <TextField fx:id="apellidoField"
+                           promptText="Apellido"/>
+
+                <TextField fx:id="telefonoField"
+                           promptText="Teléfono"/>
+
+                <Button text="Guardar Contacto"
+                        onAction="#anadirContacto"
+                        prefWidth="200"/>
+            </VBox>
+
+            <!-- TABLA -->
+            <VBox fx:id="tablaContainer"
+                  visible="false"
+                  managed="false"
+                  spacing="15"
+                  styleClass="card">
+
+                <Label text="📞 Lista de Contactos"
+                       styleClass="section-title"/>
+
+                <TableView fx:id="tablaPersonas"
+                           prefHeight="320"
+                           prefWidth="700">
+
+                    <columns>
+                        <TableColumn fx:id="colId"
+                                     text="ID"
+                                     prefWidth="80"/>
+
+                        <TableColumn fx:id="colNombre"
+                                     text="Nombre"
+                                     prefWidth="180"/>
+
+                        <TableColumn fx:id="colApellido"
+                                     text="Apellido"
+                                     prefWidth="180"/>
+
+                        <TableColumn fx:id="colTelefono"
+                                     text="Teléfono"
+                                     prefWidth="220"/>
+                    </columns>
+                </TableView>
+
+                <HBox alignment="CENTER"
+                      spacing="15">
+
+                    <Button text="🗑 Borrar"
+                            onAction="#borrarSeleccionado"
+                            prefWidth="150"
+                            styleClass="danger-button"/>
+
+                    <Button text="✏ Editar"
+                            onAction="#editarSeleccionado"
+                            prefWidth="150"
+                            styleClass="warning-button"/>
+                </HBox>
+
+            </VBox>
+
+            <!-- FORM EMERGENCIA -->
+            <VBox fx:id="emergenciaForm"
+                  visible="false"
+                  managed="false"
+                  spacing="10"
+                  maxWidth="450"
+                  styleClass="card">
+
+                <Label text="🚨 Declarar Emergencia"
+                       styleClass="section-title"/>
+
+                <TextField fx:id="ubicacionField"
+                           promptText="Ubicación"/>
+
+                <TextField fx:id="municipioField"
+                           promptText="Municipio"/>
+
+                <TextField fx:id="usuarioField"
+                           promptText="Datos Usuario"/>
+
+                <TextField fx:id="tipoField"
+                           promptText="Tipo de Emergencia"/>
+
+                <Label text="Gravedad"/>
+
+                <ChoiceBox fx:id="gravedadChoiceBox">
+
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="LEVE"/>
+                            <String fx:value="MEDIA"/>
+                            <String fx:value="ALTA"/>
+                        </FXCollections>
+                    </items>
+
+                </ChoiceBox>
+
+                <Button text="Enviar Emergencia"
+                        onAction="#enviarEmergencia"
+                        prefWidth="220"
+                        styleClass="danger-button"/>
+
+            </VBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>
+
+
+
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<?import javafx.collections.FXCollections?>-->
+<!--<?import javafx.geometry.Insets?>-->
+<!--<?import javafx.scene.control.*?>-->
+<!--<?import javafx.scene.layout.VBox?>-->
+
+<!--<?import java.lang.String?>-->
+<!--<VBox alignment="CENTER" prefHeight="800" prefWidth="900" spacing="20.0"-->
+<!--      xmlns="http://javafx.com/javafx/21"-->
+<!--      xmlns:fx="http://javafx.com/fxml/1"-->
+<!--      fx:controller="controller.MainController">-->
+
+<!--    &lt;!&ndash; Label usuario &ndash;&gt;-->
+<!--    <Label fx:id="usuarioLabel" text="No has iniciado sesión"/>-->
+
+<!--    &lt;!&ndash; Botón de logout &ndash;&gt;-->
+<!--    <Button text="Cerrar Sesión" onAction="#logoutUsuario"/>-->
+
+<!--    &lt;!&ndash; Botones principales &ndash;&gt;-->
+<!--    <Button text="Declarar Emergencia" onAction="#declararEmergencia"/>-->
+<!--    <Button text="Centros de Salud" onAction="#mostrarCentros"/>-->
+<!--    <Button text="Ver Histórico" onAction="#verHistorico" />-->
+<!--    <Button text="Acceso a teléfonos" onAction="#accesoTelefonos"/>-->
+<!--    <Button text="Añadir nuevo contacto" onAction="#mostrarFormularioContacto"/>-->
+
+<!--    &lt;!&ndash; Área de texto para mostrar información &ndash;&gt;-->
+<!--    <TextArea fx:id="areaTexto" prefHeight="600" prefWidth="700"/>-->
+<!--    <VBox fx:id="contactoForm" visible="false" managed="false" spacing="10.0">-->
+<!--        <Label text="Añadir contacto a la Agenda de Teléfonos"/>-->
+
+<!--        <TextField fx:id="nombreField" promptText="Nombre"/>-->
+<!--        <TextField fx:id="apellidoField" promptText="Apellido"/>-->
+<!--        <TextField fx:id="telefonoField" promptText="Teléfono"/>-->
+
+<!--        <Button text="Añadir contacto" onAction="#anadirContacto"/>-->
+<!--    </VBox>-->
+
+<!--    &lt;!&ndash; tableview para mostrar los contactos de la agenda &ndash;&gt;-->
+
+<!--    <VBox fx:id="tablaContainer" visible="false" managed="false" spacing="10.0">-->
+
+<!--        <Label text="Lista de contactos"/>-->
+
+<!--        <TableView fx:id="tablaPersonas" prefHeight="300" prefWidth="500">-->
+<!--            <columns>-->
+<!--                <TableColumn fx:id="colId" text="ID"/>-->
+<!--                <TableColumn fx:id="colNombre" text="Nombre"/>-->
+<!--                <TableColumn fx:id="colApellido" text="Apellido"/>-->
+<!--                <TableColumn fx:id="colTelefono" text="Teléfono"/>-->
+<!--            </columns>-->
+<!--        </TableView>-->
+
+<!--        <Button text="Borrar seleccionado" onAction="#borrarSeleccionado"/>-->
+<!--        <Button text="Editar seleccionado" onAction="#editarSeleccionado"/>-->
+
+<!--    </VBox>-->
+
+<!--    &lt;!&ndash; Formulario para declarar emergencia &ndash;&gt;-->
+<!--    <VBox fx:id="emergenciaForm" alignment="CENTER" spacing="10.0" visible="false">-->
+<!--        <Label text="Declarar Emergencia"/>-->
+<!--        <TextField fx:id="ubicacionField" promptText="Ubicación"/>-->
+<!--        <TextField fx:id="municipioField" promptText="Municipio"/>-->
+<!--        <TextField fx:id="usuarioField" promptText="Datos Usuario"/>-->
+<!--        <TextField fx:id="tipoField" promptText="Tipo de Emergencia"/>-->
+<!--        <Label text="Gravedad"/>-->
+<!--        <ChoiceBox fx:id="gravedadChoiceBox">-->
+<!--            <items>-->
+<!--                <FXCollections fx:factory="observableArrayList">-->
+<!--                    <String fx:value="LEVE"/>-->
+<!--                    <String fx:value="MEDIA"/>-->
+<!--                    <String fx:value="ALTA"/>-->
+<!--                </FXCollections>-->
+<!--            </items>-->
+<!--        </ChoiceBox>-->
+<!--        <Button text="Enviar Emergencia" onAction="#enviarEmergencia"/>-->
+<!--    </VBox>-->
+
+<!--    <padding>-->
+<!--        <Insets top="50" bottom="40" left="20" right="20"/>-->
+<!--    </padding>-->
+<!--</VBox>-->

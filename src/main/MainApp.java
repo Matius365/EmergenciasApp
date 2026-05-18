@@ -25,6 +25,10 @@ public class MainApp extends Application {
             controller.setOnLoginSuccess(usuario -> mostrarMain(stage, usuario));
 
             Scene scene = new Scene(root, 600, 450); // Tamaño más grande
+
+            // AÑADIR CSS
+            scene.getStylesheets().add(getClass().getResource("/resources/styles.css").toExternalForm());
+
             stage.setScene(scene);
             stage.setTitle("Login");
             stage.centerOnScreen();
@@ -45,6 +49,10 @@ public class MainApp extends Application {
             controller.setMainApp(this); // Referencia para logout
 
             Scene scene = new Scene(root, 900, 800);
+
+            // AÑADIR CSS
+            scene.getStylesheets().add(getClass().getResource("/resources/styles.css").toExternalForm());
+
             stage.setScene(scene);
             stage.setTitle("EmergenciasApp");
             stage.centerOnScreen();

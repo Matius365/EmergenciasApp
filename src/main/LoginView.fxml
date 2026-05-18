@@ -1,5 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/21"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="controller.LoginController"
+           style="-fx-background-color: linear-gradient(to bottom right, #4facfe, #00c6ff);">
+
+    <VBox alignment="CENTER"
+          spacing="18"
+          maxWidth="400"
+          styleClass="card">
+
+        <Label text="🚨 EMERGENCIAS APP"
+               styleClass="title-label"/>
+
+        <Label text="Iniciar Sesión"
+               styleClass="subtitle-label"/>
+
+        <ChoiceBox fx:id="usuarioChoiceBox"
+                   prefWidth="280"
+                   prefHeight="40"/>
+
+        <TextField fx:id="nombreField"
+                   promptText="Nombre"
+                   prefWidth="280"
+                   prefHeight="40"/>
+
+        <TextField fx:id="telefonoField"
+                   promptText="Teléfono"
+                   prefWidth="280"
+                   prefHeight="40"/>
+
+        <Button text="Entrar"
+                onAction="#login"
+                prefWidth="280"
+                prefHeight="45"/>
+
+        <Button text="Salir"
+                onAction="#salirApp"
+                prefWidth="280"
+                prefHeight="45"
+                styleClass="danger-button"/>
+
+    </VBox>
+
+    <padding>
+        <Insets top="40" bottom="40" left="40" right="40"/>
+    </padding>
+
+</StackPane>
+
+
+<!--<?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -14,4 +70,4 @@
 
     <Button onAction="#login" prefWidth="200" text="Entrar" />
     <Button onAction="#salirApp" prefWidth="200" text="Salir" />
-</VBox>
+</VBox> -->
