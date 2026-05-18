@@ -69,4 +69,24 @@ public class PersonaService {
             e.printStackTrace();
         }
     }
+
+    //metodo para editar persona
+    public static void editarPersona(Persona p) {
+
+        String sql = "UPDATE Persona SET nombre = ?, apellido = ?, telefono = ? WHERE id = ?";
+
+        try (Connection con = DBConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, p.getNombre());
+            ps.setString(2, p.getApellido());
+            ps.setString(3, p.getTelefono());
+            ps.setInt(4, p.getId());
+
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

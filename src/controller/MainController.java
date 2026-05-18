@@ -39,6 +39,7 @@ public class MainController {
 
 
     private UserData usuarioActual;
+    private Persona personaEnEdicion = null;
     private MainApp mainApp;
     private AlertSender sender = new AlertSender("112"); // número de emergencias
 
@@ -232,43 +233,99 @@ public class MainController {
     }
 
     //metodo para añadir contactos
-    @FXML
-    public void anadirContacto() {
-
-        String nombre = nombreField.getText().trim();
-        String apellido = apellidoField.getText().trim();
-        String telefono = telefonoField.getText().trim();
-
-        if (nombre.isEmpty() || telefono.isEmpty() || apellido.isEmpty()) {
-            mostrarAlerta("Atención","Rellena todos los campos, por favor.");
-            return;
-        }
-
-        try {
-            // 1. Crear objeto Persona
-            Persona persona = new Persona(nombre, apellido, telefono);
-
-            // 2. Guardar en base de datos
-            PersonaService.insertarPersona(persona);
-
-            // 3. Mensaje de confirmación
-            mostrarAlerta("Persona añadida correctamente.", nombre + " "
-                    + apellido + " - " + telefono);
-
-            // 4. Limpiar campos
-            nombreField.clear();
-            apellidoField.clear();
-            telefonoField.clear();
-            accesoTelefonos();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            mostrarAlerta("Error", "Rellena todos los campos.");
+//    @FXML
+//    public void anadirContacto() {
+//
+//        String nombre = nombreField.getText().trim();
+//        String apellido = apellidoField.getText().trim();
+//        String telefono = telefonoField.getText().trim();
+//
+//        if (nombre.isEmpty() || telefono.isEmpty() || apellido.isEmpty()) {
+//            mostrarAlerta("Atención","Rellena todos los campos, por favor.");
+//            return;
+//        }
+//
+//        try {
+//            // 1. Crear objeto Persona
+//            Persona persona = new Persona(nombre, apellido, telefono);
+//
+//            // 2. Guardar en base de datos
+//            PersonaService.insertarPersona(persona);
+//
+//            // 3. Mensaje de confirmación
+//            mostrarAlerta("Persona añadida correctamente.", nombre + " "
+//                    + apellido + " - " + telefono);
+//
+//            // 4. Limpiar campos
+//            nombreField.clear();
+//            apellidoField.clear();
+//            telefonoField.clear();
+//            accesoTelefonos();
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            mostrarAlerta("Error", "Rellena todos los campos.");
 //            areaTexto.setText("Error al añadir contacto: " + e.getMessage());
 //            areaTexto.setText("Error al añadir contacto. Mira consola.");
+//
+//        }
+//    }
+
+    //metodo añadir contacto modificado para edicion tambien
+@FXML
+public void anadirContacto() {
+
+    String nombre = nombreField.getText().trim();
+    String apellido = apellidoField.getText().trim();
+    String telefono = telefonoField.getText().trim();
+
+    if (nombre.isEmpty() || apellido.isEmpty() || telefono.isEmpty()) {
+        mostrarAlerta("Atención", "Rellena todos los campos.");
+        return;
+    }
+
+    try {
+
+        // MODO EDITAR
+        if (personaEnEdicion != null) {
+
+            personaEnEdicion.setNombre(nombre);
+            personaEnEdicion.setApellido(apellido);
+            personaEnEdicion.setTelefono(telefono);
+
+            PersonaService.editarPersona(personaEnEdicion);
+
+            mostrarAlerta("Éxito", "Contacto editado correctamente.");
+
+            personaEnEdicion = null;
+
+        } else {
+
+            // MODO AÑADIR
+            Persona persona = new Persona(nombre, apellido, telefono);
+
+            PersonaService.insertarPersona(persona);
+
+            mostrarAlerta("Éxito",
+                    "Persona añadida correctamente.");
 
         }
+
+        // limpiar campos
+        nombreField.clear();
+        apellidoField.clear();
+        telefonoField.clear();
+
+        // refrescar tabla
+        accesoTelefonos();
+
+    } catch (Exception e) {
+
+        e.printStackTrace();
+
+        mostrarAlerta("Error", "No se pudo guardar el contacto.");
     }
+}
     //metodo para mostrar alerta
     private void mostrarAlerta(String titulo, String mensaje) {
 
@@ -370,6 +427,29 @@ public class MainController {
 //
 //        // refrescar tabla
 //        accesoTelefonos();
+    }
+
+    @FXML
+    public void editarSeleccionado() {
+
+        Persona seleccionada = tablaPersonas.getSelectionModel().getSelectedItem();
+
+        if (seleccionada == null) {
+            mostrarAlerta("Atención", "Selecciona una persona primero.");
+            return;
+        }
+
+        // guardar persona que estamos editando
+        personaEnEdicion = seleccionada;
+
+        // cargar datos en los campos
+        nombreField.setText(seleccionada.getNombre());
+        apellidoField.setText(seleccionada.getApellido());
+        telefonoField.setText(seleccionada.getTelefono());
+
+        // mostrar formulario
+        contactoForm.setVisible(true);
+        contactoForm.setManaged(true);
     }
 }
 

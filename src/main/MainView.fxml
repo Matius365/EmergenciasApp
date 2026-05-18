@@ -51,6 +51,7 @@
         </TableView>
 
         <Button text="Borrar seleccionado" onAction="#borrarSeleccionado"/>
+        <Button text="Editar seleccionado" onAction="#editarSeleccionado"/>
 
     </VBox>
 
